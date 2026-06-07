@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        EDITAR PRODUCTO
+
+    </title>
+
+    <link rel="stylesheet"
+          href="/css/producto.css">
+
+</head>
+
+<body>
+
+<div class="crud-container">
+
+    <!-- =====================================
+    FORMULARIO
+    ====================================== -->
+
+    <div class="crud-form">
+
+        <button
+            class="btn-regresar"
+            onclick="volverIndex()">
+
+            ← REGRESAR
+
+        </button>
+
+
+
+
+
+        <h1>
+
+            EDITAR PRODUCTO
+
+        </h1>
+
+
+
+
+
+        <input
+            type="text"
+            id="nombre"
+            placeholder="Nombre">
+
+
+
+
+        <input
+            type="text"
+            id="marca"
+            placeholder="Marca">
+
+
+
+
+        <input
+            type="number"
+            id="precio"
+            min="0"
+            placeholder="Precio">
+
+
+
+
+        <input
+            type="number"
+            id="stock"
+            min="0"
+            placeholder="Stock">
+
+
+
+
+        <input
+            type="text"
+            id="imagen_url"
+            placeholder="Imagen URL">
+
+
+
+
+        <select id="categoria">
+
+            <option value="Arabe">
+                Árabe
+            </option>
+
+            <option value="Diseñador">
+                Diseñador
+            </option>
+
+        </select>
+
+
+
+
+        <select id="genero">
+
+            <option value="Caballero">
+                Caballero
+            </option>
+
+            <option value="Dama">
+                Dama
+            </option>
+
+            <option value="Unisex">
+                Unisex
+            </option>
+
+        </select>
+
+
+
+
+        <textarea
+            id="descripcion"
+            placeholder="Descripción"></textarea>
+
+
+
+
+
+        <!-- =====================================
+        DECANTS
+        ====================================== -->
+
+        <div class="decants-box">
+
+            <label class="check-label">
+
+                <input
+                    type="checkbox"
+                    id="es_decant">
+
+                ¿Tiene decants?
+
+            </label>
+
+
+
+
+
+            <div
+    class="decants-grid"
+    id="decants-grid">
+
+                <input
+                    type="number"
+                    id="precio_decant_5ml"
+                    min="0"
+                    placeholder="Precio 5ml">
+
+
+
+
+                <input
+                    type="number"
+                    id="precio_decant_10ml"
+                    min="0"
+                    placeholder="Precio 10ml">
+
+
+
+
+                <input
+                    type="number"
+                    id="stock_decant_5ml"
+                    min="0"
+                    placeholder="Stock 5ml">
+
+
+
+
+                <input
+                    type="number"
+                    id="stock_decant_10ml"
+                    min="0"
+                    placeholder="Stock 10ml">
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- =====================================
+        BOTONES
+        ====================================== -->
+
+        <div class="botones">
+
+    <button onclick="guardarCambios()">
+
+        GUARDAR CAMBIOS
+
+    </button>
+
+    <button
+        class="eliminar"
+        onclick="eliminarProducto()">
+
+        ELIMINAR PRODUCTO
+
+    </button>
+
+</div>
+
+    </div>
+
+
+
+
+
+    <!-- =====================================
+    PREVIEW
+    ====================================== -->
+
+    <div class="preview">
+
+        <img
+            id="preview-img"
+            src="/imagenes/default.png">
+
+
+
+
+        <div
+            class="preview-marca"
+            id="preview-marca">
+
+            MARCA
+
+        </div>
+
+
+
+
+        <h2
+            id="preview-nombre">
+
+            PERFUME
+
+        </h2>
+
+
+
+
+        <div
+            class="preview-precio"
+            id="preview-precio">
+
+            $0
+
+        </div>
+
+
+
+
+        <p
+            class="preview-desc"
+            id="preview-desc">
+
+            Descripción...
+
+        </p>
+
+    </div>
+
+</div>
+
+<script src="/js/producto.js"></script>
+
+</body>
+</html>

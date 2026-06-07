@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- =====================================
+    META
+    ====================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+    <!-- =====================================
+    TITULO
+    ====================================== -->
+
+    <title>
+
+        444 ESSENCE | Login
+
+    </title>
+
+
+
+
+
+    <!-- =====================================
+    CSS
+    ====================================== -->
+
+    <link rel="stylesheet"
+          href="/css/login.css">
+
+
+
+
+
+    <!-- =====================================
+    ICONOS
+    ====================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+
+
+
+
+<!-- =====================================
+OVERLAY
+===================================== -->
+
+<div class="overlay"></div>
+
+
+
+
+
+<!-- =====================================
+CONTENEDOR PRINCIPAL
+===================================== -->
+
+<div class="auth-container">
+
+    <div class="auth-box">
+
+        <!-- =====================================
+        LOGO
+        ====================================== -->
+
+        <div class="logo">
+
+            444 ESSENCE
+
+        </div>
+
+
+
+
+
+        <!-- =====================================
+        LOGIN
+        ====================================== -->
+
+        <div id="loginSection">
+
+            <!-- TITULO -->
+            <h1>
+
+                Iniciar Sesión
+
+            </h1>
+
+
+
+
+
+            <!-- FORM LOGIN -->
+            <form id="loginForm">
+
+                <!-- EMAIL -->
+                <div class="input-group">
+
+                    <input type="email"
+                           id="loginEmail"
+                           required>
+
+                    <label>
+
+                        Correo electrónico
+
+                    </label>
+
+                </div>
+
+
+
+
+
+                <!-- PASSWORD -->
+                <div class="input-group">
+
+                    <input type="password"
+                           id="loginPassword"
+                           required>
+
+                    <label>
+
+                        Contraseña
+
+                    </label>
+
+                </div>
+
+
+
+
+
+                <!-- BOTON -->
+                <button type="submit"
+                        class="btn-auth">
+
+                    Ingresar
+
+                </button>
+
+            </form>
+
+
+
+
+
+            <!-- CAMBIAR A REGISTRO -->
+            <div class="switch-text">
+
+                ¿No tienes cuenta?
+
+                <span onclick="mostrarRegistro()">
+
+                    Crear cuenta
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- =====================================
+        REGISTRO
+        ====================================== -->
+
+        <div id="registroSection"
+             class="hidden">
+
+            <!-- TITULO -->
+            <h1>
+
+                Crear Cuenta
+
+            </h1>
+
+
+
+
+
+            <!-- FORM REGISTRO -->
+            <form id="registroForm">
+
+                <!-- NOMBRE -->
+                <div class="input-group">
+
+                    <input type="text"
+                           id="registroNombre"
+                           required>
+
+                    <label>
+
+                        Nombre completo
+
+                    </label>
+
+                </div>
+
+
+
+
+
+                <!-- EMAIL -->
+                <div class="input-group">
+
+                    <input type="email"
+                           id="registroEmail"
+                           required>
+
+                    <label>
+
+                        Correo electrónico
+
+                    </label>
+
+                </div>
+
+
+
+
+
+                <!-- PASSWORD -->
+                <div class="input-group">
+
+                    <input type="password"
+                           id="registroPassword"
+                           required>
+
+                    <label>
+
+                        Contraseña
+
+                    </label>
+
+                </div>
+
+
+
+
+
+                <!-- BOTON -->
+                <button type="submit"
+                        class="btn-auth">
+
+                    Crear Cuenta
+
+                </button>
+
+            </form>
+
+
+
+
+
+            <!-- CAMBIAR A LOGIN -->
+            <div class="switch-text">
+
+                ¿Ya tienes cuenta?
+
+                <span onclick="mostrarLogin()">
+
+                    Iniciar sesión
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<!-- =====================================
+JS
+===================================== -->
+
+<script src="/js/login.js"></script>
+
+</body>
+</html>

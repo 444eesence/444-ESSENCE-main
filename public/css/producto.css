@@ -1,0 +1,458 @@
+/* =====================================
+RESET GENERAL
+===================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+
+
+
+/* =====================================
+BODY
+===================================== */
+
+body{
+
+    background:black;
+
+    color:white;
+
+    font-family:Arial;
+
+}
+
+
+
+
+
+/* =====================================
+CONTENEDOR PRINCIPAL
+===================================== */
+
+.crud-container{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 400px;
+
+    gap:30px;
+
+    padding:30px;
+
+    min-height:100vh;
+
+}
+
+
+
+
+
+/* =====================================
+FORMULARIO
+===================================== */
+
+.crud-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+
+
+
+/* =====================================
+TITULO
+===================================== */
+
+.crud-form h1{
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+/* =====================================
+INPUTS
+===================================== */
+
+input,
+textarea{
+
+    background:#111;
+
+    border:1px solid #222;
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    outline:none;
+
+    transition:0.3s;
+
+}
+
+
+
+
+
+/* =====================================
+FOCUS INPUTS
+===================================== */
+
+input:focus,
+textarea:focus{
+
+    border-color:silver;
+
+}
+
+
+
+
+
+/* =====================================
+TEXTAREA
+===================================== */
+
+textarea{
+
+    min-height:150px;
+
+    resize:none;
+
+}
+
+
+
+
+
+/* =====================================
+BOTONES GENERALES
+===================================== */
+
+button{
+
+    padding:10px 16px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:silver;
+
+    color:black;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    width:max-content;
+
+}
+
+
+.botones{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:10px;
+
+    flex-wrap:wrap;
+
+}
+
+
+/* =====================================
+HOVER BOTONES
+===================================== */
+
+button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+
+
+
+/* =====================================
+BOTON ELIMINAR
+===================================== */
+
+.eliminar{
+
+    background:#700;
+
+    color:white;
+
+}
+
+
+
+
+
+.eliminar:hover{
+
+    background:#900;
+
+}
+
+
+
+
+
+/* =====================================
+BOTON REGRESAR
+===================================== */
+
+.btn-regresar{
+
+    background:#111;
+
+    border:1px solid #222;
+
+    color:white;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    margin-bottom:20px;
+
+    transition:.2s;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+.btn-regresar:hover{
+
+    background:#1a1a1a;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+
+
+/* =====================================
+PREVIEW
+===================================== */
+
+.preview{
+
+    background:#050505;
+
+    border:1px solid #111;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    position:sticky;
+
+    top:20px;
+
+    height:max-content;
+
+}
+
+
+
+
+
+/* =====================================
+IMAGEN PREVIEW
+===================================== */
+
+.preview img{
+
+    width:100%;
+
+    border-radius:15px;
+
+    background:white;
+
+    padding:10px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+/* =====================================
+MARCA PREVIEW
+===================================== */
+
+.preview-marca{
+
+    color:silver;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+/* =====================================
+PRECIO PREVIEW
+===================================== */
+
+.preview-precio{
+
+    font-size:35px;
+
+    font-weight:bold;
+
+    margin:15px 0;
+
+}
+
+
+
+
+
+/* =====================================
+DESCRIPCION PREVIEW
+===================================== */
+
+.preview-desc{
+
+    color:#bbb;
+
+    line-height:1.5;
+
+}
+
+
+
+
+
+/* =====================================
+RESPONSIVE
+===================================== */
+
+@media(max-width:900px){
+
+    .crud-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+
+
+    .preview{
+
+        position:relative;
+
+        top:0;
+
+    }
+
+}
+
+select{
+
+    background:#111;
+
+    border:1px solid #222;
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    outline:none;
+
+}
+
+.decants-box{
+
+    margin-top:10px;
+
+}
+
+.check-label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:15px;
+
+    color:white;
+
+}
+
+.decants-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+
+}
+
+@media(max-width:900px){
+
+    .decants-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+.decants-grid.oculto{
+
+    display:none;
+
+}

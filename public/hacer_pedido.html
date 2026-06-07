@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- =====================================
+    META
+    ====================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+    <!-- =====================================
+    TITULO
+    ====================================== -->
+
+    <title>
+
+        HACER PEDIDO
+
+    </title>
+
+
+
+
+
+    <!-- =====================================
+    CSS
+    ====================================== -->
+
+    <link rel="stylesheet"
+          href="/css/hacer_pedido.css">
+
+</head>
+
+<body>
+
+
+
+
+
+<!-- =====================================
+CONTENEDOR GENERAL
+===================================== -->
+
+<div class="contenedor">
+
+    <!-- =====================================
+    PERFUME
+    ====================================== -->
+
+    <div class="perfume-box"
+         id="perfume-box">
+
+    </div>
+
+
+
+
+
+    <!-- =====================================
+    FORMULARIO PEDIDO
+    ====================================== -->
+
+    <div class="form-box">
+
+        <!-- =====================================
+        TITULO
+        ====================================== -->
+
+        <h1>
+
+            CONFIRMAR PEDIDO
+
+        </h1>
+
+
+
+
+
+        <!-- =====================================
+        FORM
+        ====================================== -->
+
+        <form id="formPedido">
+
+            <!-- =====================================
+            TIPO PRODUCTO
+            ====================================== -->
+
+            <select id="tipo_producto">
+
+                <option value="">
+
+                    -- Seleccione Tipo --
+
+                </option>
+
+            </select>
+
+
+
+
+
+            <!-- =====================================
+            CANTIDAD
+            ====================================== -->
+
+            <input type="number"
+                   id="cantidad"
+                   min="1"
+                   value="1"
+                   placeholder="Cantidad">
+
+
+
+
+
+            <!-- =====================================
+            TELEFONO
+            ====================================== -->
+
+            <input type="tel"
+                   id="telefono"
+                   maxlength="10"
+                   pattern="[0-9]{10}"
+                   inputmode="numeric"
+                   placeholder="Número de teléfono"
+                   required>
+
+
+
+
+
+            <!-- =====================================
+            DIRECCION
+            ====================================== -->
+
+            <input type="text"
+                   id="direccion"
+                   placeholder="Dirección de entrega"
+                   required>
+
+
+
+
+
+            <!-- =====================================
+            REFERENCIAS
+            ====================================== -->
+
+            <textarea id="referencias"
+                      placeholder="Referencias del domicilio"></textarea>
+
+
+
+
+
+            <!-- =====================================
+            RESUMEN PEDIDO
+            ====================================== -->
+
+            <div class="resumen-pedido">
+
+                <!-- =====================================
+                TIPO
+                ====================================== -->
+
+                <div class="resumen-item">
+
+                    <span>
+
+                        Tipo:
+
+                    </span>
+
+
+
+
+
+                    <span id="resumen-tipo">
+
+                        Perfume Completo
+
+                    </span>
+
+                </div>
+
+
+
+
+
+                <!-- =====================================
+                CANTIDAD
+                ====================================== -->
+
+                <div class="resumen-item">
+
+                    <span>
+
+                        Cantidad:
+
+                    </span>
+
+
+
+
+
+                    <span id="resumen-cantidad">
+
+                        1
+
+                    </span>
+
+                </div>
+
+
+
+
+
+                <!-- =====================================
+                TOTAL
+                ====================================== -->
+
+                <div class="resumen-item total">
+
+                    <span>
+
+                        TOTAL:
+
+                    </span>
+
+
+
+
+
+                    <span id="total-pagar">
+
+                        $0
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <!-- =====================================
+            BOTON CONFIRMAR
+            ====================================== -->
+
+            <button type="submit"
+                    id="btn-confirmar">
+
+                CONFIRMAR PEDIDO
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+
+
+<!-- =====================================
+JS
+===================================== -->
+
+<script src="/js/hacer_pedido.js"></script>
+
+</body>
+</html>

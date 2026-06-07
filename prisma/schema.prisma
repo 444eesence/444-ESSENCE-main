@@ -1,0 +1,113 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Producto {
+  id_productos       Int      @id @default(autoincrement())
+  nombre             String   @db.VarChar(255)
+  marca              String   @db.VarChar(255)
+  precio             Decimal  @db.Decimal(10, 2)
+  stock              Int
+  imagen_url         String   @db.VarChar(255)
+  categoria          String
+  genero String @default("Unisex")
+  descripcion        String   @db.Text
+  fecha_registro     DateTime @default(now())
+  decant_opciones    String?  @db.VarChar(255)
+  es_decant          Boolean  @default(false)
+  precio_decant_5ml  Decimal? @db.Decimal(10, 2)
+  precio_decant_10ml Decimal? @db.Decimal(10, 2)
+  stock_decant_5ml   Int?
+  stock_decant_10ml  Int?
+  pedidos            Pedido[]
+
+  @@map("productos")
+}
+
+model Usuario {
+  id_usuarios   Int            @id @default(autoincrement())
+  nombre        String         @db.VarChar(255)
+  email         String         @unique @db.VarChar(255)
+  contrasena    String         @db.VarChar(255)
+  rol           String
+  administrador Administrador?
+  pedidos       Pedido[]
+
+  @@map("usuarios")
+}
+
+model Pedido {
+
+  id_pedidos       Int        @id @default(autoincrement())
+
+  tipo_producto    String
+  mililitros_decan String
+
+  telefono         String? @db.VarChar(255)
+  direccion        String? @db.VarChar(255)
+  referencias      String? @db.Text
+
+  cantidad         Int @default(1)
+
+  estado           Boolean    @default(true)
+
+  id_usuarios      Int
+  id_productos     Int
+
+  precio_final     Decimal    @default(0.00) @db.Decimal(10, 2)
+
+  producto         Producto   @relation(fields: [id_productos], references: [id_productos])
+
+  usuario          Usuario    @relation(fields: [id_usuarios], references: [id_usuarios])
+
+  registros        Registro[]
+
+  fecha DateTime @default(now())
+
+  @@index([id_productos], map: "pedidos_id_productos_fkey")
+  @@index([id_usuarios], map: "pedidos_id_usuarios_fkey")
+
+  @@map("pedidos")
+}
+
+model Proveedor {
+  id_proveedor Int    @id @default(autoincrement())
+  nombre       String @db.VarChar(255)
+  ubicacion    String @db.VarChar(255)
+  telefono String @db.VarChar(20)
+
+  @@map("proveedor")
+}
+
+model Registro {
+  id_registro Int    @id @default(autoincrement())
+  id_pedido   Int
+  pedido      Pedido @relation(fields: [id_pedido], references: [id_pedidos])
+
+  @@index([id_pedido], map: "registros_id_pedido_fkey")
+  @@map("registros")
+}
+
+model Administrador {
+
+  id_admin   Int     @id @default(autoincrement())
+
+  id_usuario Int     @unique
+
+  ig         String  @db.VarChar(255)
+
+  num        String  @db.VarChar(20)
+
+  app_pass   String? @db.VarChar(255)
+
+  principal  Boolean @default(false)
+
+  usuario    Usuario @relation(fields: [id_usuario], references: [id_usuarios])
+
+  @@map("administrador")
+}

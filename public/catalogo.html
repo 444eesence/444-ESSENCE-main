@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- =====================================
+    META
+    ====================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+    <!-- =====================================
+    TITULO
+    ====================================== -->
+
+    <title>
+        444 ESSENCE
+    </title>
+
+
+
+
+
+    <!-- =====================================
+    CSS
+    ====================================== -->
+
+    <link rel="stylesheet"
+          href="/css/catalogo.css">
+
+
+
+
+
+    <!-- =====================================
+    ICONOS
+    ====================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+
+
+
+
+<!-- =====================================
+HEADER
+===================================== -->
+
+<header>
+
+    <div class="header-top">
+
+        <!-- =====================================
+        LOGO
+        ====================================== -->
+
+        <div class="logo">
+
+            444 ESSENCE
+
+        </div>
+
+
+
+
+
+        <!-- =====================================
+        BOTONES FILTROS
+        ====================================== -->
+
+        <div class="header-categorias">
+
+            <!-- =====================================
+            CATEGORIAS
+            ====================================== -->
+
+            <button onclick="filtrarCategoria('Todos')">
+
+                TODOS
+
+            </button>
+
+
+
+
+
+            <button onclick="filtrarCategoria('Arabe')">
+
+                ÁRABES
+
+            </button>
+
+
+
+
+
+            <button onclick="filtrarCategoria('Diseñador')">
+
+                DISEÑADOR
+
+            </button>
+
+
+
+
+
+            <!-- =====================================
+            GENEROS
+            ====================================== -->
+
+            <button onclick="irSeccion('caballero-section')">
+
+                CABALLERO
+
+            </button>
+
+
+
+
+
+            <button onclick="irSeccion('dama-section')">
+
+                DAMA
+
+            </button>
+
+
+
+
+
+            <button onclick="irSeccion('unisex-section')">
+
+                UNISEX
+
+            </button>
+
+        </div>
+
+
+
+
+
+        <!-- =====================================
+        BUSCADOR
+        ====================================== -->
+
+        <div class="search-box">
+
+            <input type="text"
+                   id="busqueda"
+                   placeholder="Buscar perfume...">
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+
+
+<!-- =====================================
+CATALOGO GENERAL
+===================================== -->
+
+<div class="catalogo-secciones">
+
+    <!-- =====================================
+    CABALLERO
+    ====================================== -->
+
+    <section id="caballero-section">
+
+        <h2 class="titulo-seccion">
+
+            CABALLERO
+
+        </h2>
+
+
+
+
+
+        <div class="catalogo"
+             id="catalogo-caballero">
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =====================================
+    DAMA
+    ====================================== -->
+
+    <section id="dama-section">
+
+        <h2 class="titulo-seccion">
+
+            DAMA
+
+        </h2>
+
+
+
+
+
+        <div class="catalogo"
+             id="catalogo-dama">
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =====================================
+    UNISEX
+    ====================================== -->
+
+    <section id="unisex-section">
+
+        <h2 class="titulo-seccion">
+
+            UNISEX
+
+        </h2>
+
+
+
+
+
+        <div class="catalogo"
+             id="catalogo-unisex">
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+
+
+<!-- =====================================
+SLIDER PERFUME
+===================================== -->
+
+<div class="slider"
+     id="slider">
+
+    <div class="slider-content"
+         id="slider-content">
+
+        <h2>
+
+            Cargando perfume...
+
+        </h2>
+
+    </div>
+
+</div>
+
+
+
+
+
+<!-- =====================================
+BOTON LOGIN
+===================================== -->
+
+<button class="login-btn"
+        onclick="abrirLogin()">
+
+    <i class="fa-solid fa-user"></i>
+
+</button>
+
+
+
+
+
+<!-- =====================================
+FOOTER
+===================================== -->
+
+<footer class="footer-redes">
+
+    <!-- =====================================
+    ADMIN INFO
+    ====================================== -->
+
+    <div class="footer-admin"
+         id="footer-admin">
+
+        Cargando administrador...
+
+    </div>
+
+
+
+
+
+    <!-- =====================================
+    REDES SOCIALES
+    ====================================== -->
+
+<div class="footer-social">
+
+    <!-- INSTAGRAM -->
+    <a href="#">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <!-- WHATSAPP -->
+    <a href="#">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- APP -->
+    <a
+        href="#"
+        onclick="abrirDescargas()">
+
+        <i class="fa-solid fa-download"></i>
+
+    </a>
+
+    <!-- CREDITOS -->
+    <a
+        href="#"
+        onclick="abrirCreditos()">
+
+        <i class="fa-solid fa-code"></i>
+
+    </a>
+
+</div>
+
+</footer>
+<!-- =====================================
+MODAL CRÉDITOS
+===================================== -->
+
+<div
+    id="modal-creditos"
+    class="modal-creditos oculto">
+
+    <div class="creditos-box">
+
+        <h2>
+
+            444 ESSENCE
+
+        </h2>
+
+        <p>
+
+            Sistema desarrollado por:
+
+        </p>
+
+        <hr>
+
+        <p>👨‍💻 Eder Jhovany Espinoza Yañez</p>
+
+        <p>👩‍💻 Maybelin Guadalupe Morales Villatoro</p>
+
+        <p>👨‍💻 Melani Naomi Sanchez Parada</p>
+
+        <p>👨‍💻 Luis Alexander Bautista Sanchez</p>
+
+        <hr>
+
+        <p>
+
+            HTML • CSS • JavaScript
+
+        </p>
+
+        <p>
+
+            Node.js • Express • Prisma • MySQL
+
+        </p>
+
+        <button
+    class="btn-cerrar-modal"
+    onclick="cerrarCreditos()">
+
+    CERRAR
+
+</button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================
+MODAL DESCARGAS
+===================================== -->
+
+<div
+    id="modal-descargas"
+    class="modal-creditos oculto">
+
+    <div class="creditos-box">
+
+        <h2>
+
+            DESCARGAR 444 ESSENCE
+
+        </h2>
+
+        <p>
+
+            Elige la versión que deseas descargar
+
+        </p>
+
+        <hr>
+
+        <button
+            class="btn-descarga"
+            onclick="descargarAndroid()">
+
+            <strong>
+
+                📱 Android
+
+            </strong>
+
+            <br>
+
+            <small>
+
+                Instalar aplicación móvil
+
+            </small>
+
+        </button>
+
+
+
+
+
+        <button
+            class="btn-descarga"
+            onclick="descargarWindows()">
+
+            <strong>
+
+                🖥️ Windows
+
+            </strong>
+
+            <br>
+
+            <small>
+
+                Instalar aplicación de escritorio
+
+            </small>
+
+        </button>
+
+
+
+
+
+        <button
+            class="btn-cerrar-modal"
+            onclick="cerrarDescargas()">
+
+            CERRAR
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================
+JS
+===================================== -->
+
+<script src="/js/catalogo.js"></script>
+
+</body>
+</html>

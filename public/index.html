@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- =========================================
+    META
+    ========================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+    <!-- =========================================
+    TITULO
+    ========================================== -->
+
+    <title>
+
+        444 ESSENCE
+
+    </title>
+
+
+
+
+
+    <!-- =========================================
+    CSS
+    ========================================== -->
+
+    <link rel="stylesheet"
+          href="/css/index.css">
+
+
+
+
+
+    <!-- =========================================
+    ICONOS
+    ========================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+
+
+    <!-- =========================================
+    EXCEL
+    ========================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+</head>
+
+
+
+<body>
+
+
+
+
+
+<!-- =========================================
+SIDEBAR
+========================================= -->
+
+<div class="sidebar"
+     id="sidebar">
+
+    <!-- =========================================
+    BOTON MENU
+    ========================================== -->
+
+    <button id="toggleSidebar">
+
+        ☰
+
+    </button>
+
+
+
+
+
+    <!-- =========================================
+    LOGO
+    ========================================== -->
+
+    <img src="/imagenes/logo.jpeg"
+         alt="444 ESSENCE"
+         class="main-logo">
+
+
+
+
+
+    <!-- =========================================
+    TITULO
+    ========================================== -->
+
+    <h1 class="titulo-logo">
+
+        444 ESSENCE
+
+    </h1>
+
+
+
+
+
+    <!-- =========================================
+    MENU
+    ========================================== -->
+
+    <nav class="menu">
+
+        <!-- PRODUCTOS -->
+        <div class="nav-item active"
+             data-title="PRODUCTOS"
+             onclick="mostrarSeccion('productos', this)">
+
+            <i class="fa-solid fa-spray-can-sparkles"></i>
+
+            <span>
+
+                PRODUCTOS
+
+            </span>
+
+        </div>
+
+
+
+
+
+        <!-- USUARIOS -->
+        <div class="nav-item"
+             data-title="USUARIOS"
+             onclick="mostrarSeccion('usuarios', this)">
+
+            <i class="fa-solid fa-user"></i>
+
+            <span>
+
+                USUARIOS
+
+            </span>
+
+        </div>
+
+
+
+
+
+        <!-- PEDIDOS -->
+        <div class="nav-item"
+             data-title="PEDIDOS"
+             onclick="mostrarSeccion('pedidos', this)">
+
+            <i class="fa-solid fa-box"></i>
+
+            <span>
+
+                PEDIDOS
+
+            </span>
+
+        </div>
+
+
+
+
+
+        <!-- REGISTROS -->
+        <div class="nav-item"
+             data-title="REGISTROS"
+             onclick="mostrarSeccion('registros', this)">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <span>
+
+                REGISTROS
+
+            </span>
+
+        </div>
+
+
+
+
+
+        <!-- PROVEEDORES -->
+        <div class="nav-item"
+             data-title="PROVEEDORES"
+             onclick="mostrarSeccion('proveedores', this)">
+
+            <i class="fa-solid fa-truck"></i>
+
+            <span>
+
+                PROVEEDORES
+
+            </span>
+
+        </div>
+
+
+
+
+
+        <!-- ADMIN -->
+        <div class="nav-item"
+             data-title="ADMIN"
+             onclick="mostrarSeccion('admin', this)">
+
+            <i class="fa-solid fa-shield"></i>
+
+            <span>
+
+                ADMIN
+
+            </span>
+
+        </div>
+
+        <!-- =====================================
+CREDITOS
+===================================== -->
+
+<div class="nav-item"
+     onclick="abrirCreditosAdmin()">
+
+    <i class="fa-solid fa-code"></i>
+
+    <span>
+
+        CRÉDITOS
+
+    </span>
+
+</div>
+
+
+
+
+
+        <!-- CERRAR SESION -->
+        <div class="nav-item cerrar-btn"
+             data-title="CERRAR SESIÓN"
+             onclick="cerrarSesion()">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span>
+
+                CERRAR SESIÓN
+
+            </span>
+
+        </div>
+
+    </nav>
+
+</div>
+
+
+
+
+
+<!-- =========================================
+CONTENIDO PRINCIPAL
+========================================= -->
+
+<div class="main-content">
+
+
+
+
+    <!-- =====================================
+    PRODUCTOS
+    ===================================== -->
+
+    <section id="productos-section">
+
+        <!-- TOP -->
+        <div class="top-bar">
+
+            <h2>
+
+                CATÁLOGO TOTAL
+
+            </h2>
+
+
+
+
+
+            <button class="btn-agregar"
+                    onclick="location.href='/formulario_prod.html'">
+
+                + AGREGAR PRODUCTO
+
+            </button>
+
+        </div>
+
+
+<!-- =====================================
+BUSCADOR PRODUCTOS
+===================================== -->
+
+<div class="filtros">
+
+    <input
+        type="text"
+        id="busqueda"
+        placeholder="Buscar producto..."
+        onkeyup="filtrar()">
+
+    <select id="tipoStock" onchange="filtrar()">
+
+        <option value="perfume">
+            Perfume
+        </option>
+
+        <option value="5ml">
+            Decant 5ml
+        </option>
+
+        <option value="10ml">
+            Decant 10ml
+        </option>
+
+    </select>
+
+    <select id="ordenStock" onchange="filtrar()">
+
+        <option value="">
+            Ordenar stock
+        </option>
+
+        <option value="menor">
+            Menor stock
+        </option>
+
+        <option value="mayor">
+            Mayor stock
+        </option>
+
+    </select>
+
+</div>
+
+        <!-- TABLA -->
+        <div class="tabla-container">
+
+            <table class="data-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>MARCA</th>
+                        <th>PRECIO</th>
+                        <th>STOCK</th>
+
+                        <th>5ML</th>
+                        <th>10ML</th>
+
+                        <th>STOCK 5ML</th>
+                        <th>STOCK 10ML</th>
+
+                        <th>IMAGEN</th>
+                        <th>CATEGORÍA</th>
+                        <th>DESCRIPCIÓN</th>
+                        <th>DECANT</th>
+
+                    </tr>
+
+                </thead>
+
+
+
+
+
+                <tbody id="tabla-productos"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =====================================
+    USUARIOS
+    ===================================== -->
+
+    <section id="usuarios-section"
+             style="display:none;">
+
+        <!-- TOP -->
+        <div class="top-bar">
+
+            <h2>
+
+                USUARIOS
+
+            </h2>
+
+        </div>
+
+
+
+
+
+        <!-- FILTRO -->
+        <div class="filtros">
+
+            <input type="text"
+                   id="buscar-usuario"
+                   placeholder="Buscar usuario..."
+                   onkeyup="filtrarUsuarios()">
+
+        </div>
+
+
+
+
+
+        <!-- TABLA -->
+        <div class="tabla-container">
+
+            <table class="data-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>EMAIL</th>
+                        <th>ROL</th>
+                        <th>ACCIONES</th>
+
+                    </tr>
+
+                </thead>
+
+
+
+
+
+                <tbody id="tabla-usuarios"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =====================================
+    PEDIDOS
+    ===================================== -->
+
+    <section id="pedidos-section"
+             style="display:none;">
+
+        <div class="pedidos-grid">
+
+            <!-- PENDIENTES -->
+            <div class="pedido-box">
+
+                <div class="top-bar">
+
+                    <h2>
+
+                        PENDIENTES
+
+                    </h2>
+
+                </div>
+
+
+
+
+
+                <!-- TABLA -->
+                <div class="tabla-container">
+
+                    <table class="data-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+                                <th>CLIENTE</th>
+                                <th>TELÉFONO</th>
+                                <th>DIRECCIÓN</th>
+                                <th>CANTIDAD</th>
+                                <th>PRODUCTO</th>
+                                <th>TOTAL</th>
+                                <th>TIPO</th>
+                                <th>REFERENCIAS</th>
+                                <th>ACCIONES</th>
+
+                            </tr>
+
+                        </thead>
+
+
+
+
+
+                        <tbody id="tabla-pendientes"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <!-- ENVIADOS -->
+            <div class="pedido-box">
+
+                <div class="top-bar">
+
+                    <h2>
+
+                        ENVIADOS
+
+                    </h2>
+
+
+
+
+
+                    <button class="btn-eliminar"
+                            onclick="limpiarEnviados()">
+
+                        LIMPIAR ENVIADOS
+
+                    </button>
+
+                </div>
+
+
+
+
+
+                <!-- TABLA -->
+                <div class="tabla-container">
+
+                    <table class="data-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+                                <th>CLIENTE</th>
+                                <th>TELÉFONO</th>
+                                <th>DIRECCIÓN</th>
+                                <th>CANTIDAD</th>
+                                <th>PRODUCTO</th>
+                                <th>TOTAL</th>
+                                <th>TIPO</th>
+                                <th>REFERENCIAS</th>
+
+                            </tr>
+
+                        </thead>
+
+
+
+
+
+                        <tbody id="tabla-enviados"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =====================================
+    REGISTROS
+    ===================================== -->
+
+    <section id="registros-section"
+             style="display:none;">
+
+        <!-- CARDS -->
+        <div class="cards-registros">
+
+            <div class="card-registro ventas">
+
+                <h3>
+
+                    VENTAS TOTALES
+
+                </h3>
+
+                <h1 id="total-ingresos">
+
+                    $0
+
+                </h1>
+
+            </div>
+
+
+
+
+
+            <div class="card-registro semana">
+
+                <h3>
+
+                    VENTAS SEMANALES
+
+                </h3>
+
+                <h1 id="ventas-semana">
+
+                    $0
+
+                </h1>
+
+            </div>
+
+
+
+
+
+            <div class="card-registro mes">
+
+                <h3>
+
+                    VENTAS MENSUALES
+
+                </h3>
+
+                <h1 id="ventas-mes">
+
+                    $0
+
+                </h1>
+
+            </div>
+
+
+
+
+
+            <div class="card-registro stock">
+
+                <h3>
+
+                    VALOR INVENTARIO
+
+                </h3>
+
+                <h1 id="stock-restante">
+
+                    0
+
+                </h1>
+
+            </div>
+
+
+
+
+
+            <div class="card-registro enviados">
+
+                <h3>
+
+                    PEDIDOS ENVIADOS
+
+                </h3>
+
+                <h1 id="pedidos-enviados">
+
+                    0
+
+                </h1>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- TOP -->
+        <div class="top-bar">
+
+            <h2>
+
+                REGISTROS
+
+            </h2>
+
+
+
+
+
+            <button class="btn-plata"
+                    onclick="exportarExcel()">
+
+                EXPORTAR EXCEL
+
+            </button>
+
+
+
+
+
+            <button class="btn-eliminar"
+                    onclick="limpiarRegistros()">
+
+                LIMPIAR REGISTROS
+
+            </button>
+
+        </div>
+
+
+
+
+
+        <!-- FILTROS -->
+        <div class="filtros-registro">
+
+            <button class="btn-filtro active"
+                    onclick="filtrarRegistros('todo', this)">
+
+                TODO
+
+            </button>
+
+
+
+
+
+            <button class="btn-filtro"
+                    onclick="filtrarRegistros('hoy', this)">
+
+                HOY
+
+            </button>
+
+
+
+
+
+            <button class="btn-filtro"
+                    onclick="filtrarRegistros('semana', this)">
+
+                SEMANA
+
+            </button>
+
+
+
+
+
+            <button class="btn-filtro"
+                    onclick="filtrarRegistros('mes', this)">
+
+                MES
+
+            </button>
+
+        </div>
+
+<div class="filtros">
+
+    <input
+        type="text"
+        id="buscar-registro"
+        placeholder="Buscar cliente o producto..."
+        onkeyup="buscarRegistro()">
+
+</div>
+
+
+
+        <!-- TABLA -->
+        <div class="tabla-container">
+
+            <div class="registro-info">
+
+                <div>
+
+                    <h2>
+
+                        HISTORIAL FINANCIERO
+
+                    </h2>
+
+
+
+
+
+                    <p>
+
+                        Todas las ventas confirmadas del sistema
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <table class="data-table"
+                   id="tabla-registros-excel">
+
+                <thead>
+
+                    <tr>
+
+                        <th>FECHA</th>
+                        <th>USUARIO</th>
+                        <th>PRODUCTO</th>
+                        <th>CANTIDAD</th>
+                        <th>MONTO</th>
+                        <th>ESTADO</th>
+
+                    </tr>
+
+                </thead>
+
+
+
+
+
+                <tbody id="tabla-registros"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =====================================
+    PROVEEDORES
+    ===================================== -->
+
+    <section id="proveedores-section"
+             style="display:none;">
+
+        <!-- TOP -->
+        <div class="top-bar">
+
+            <h2>
+
+                PROVEEDORES
+
+            </h2>
+
+        </div>
+
+
+
+
+
+        <!-- FORM -->
+        <div class="proveedor-form">
+
+            <input type="hidden"
+                   id="proveedor-id">
+
+            <input type="text"
+                   id="proveedor-nombre"
+                   placeholder="Nombre">
+
+            <input type="text"
+                   id="proveedor-ubicacion"
+                   placeholder="Ubicación">
+
+            <input type="text"
+                   id="proveedor-telefono"
+                   placeholder="Teléfono">
+
+            <button class="btn-agregar"
+                    onclick="guardarProveedor()">
+
+                GUARDAR
+
+            </button>
+
+        </div>
+
+
+
+
+
+        <!-- BUSCADOR -->
+        <div class="filtros">
+
+            <input type="text"
+                   id="buscar-proveedor"
+                   placeholder="Buscar proveedor..."
+                   onkeyup="filtrarProveedores()">
+
+        </div>
+
+
+
+
+
+        <!-- TABLA -->
+        <div class="tabla-container">
+
+            <table class="data-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>UBICACIÓN</th>
+                        <th>TELÉFONO</th>
+                        <th>ACCIONES</th>
+
+                    </tr>
+
+                </thead>
+
+
+
+
+
+                <tbody id="tabla-proveedores"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- =====================================
+    ADMIN
+    ===================================== -->
+
+    <section id="admin-section"
+             style="display:none;">
+
+        <!-- TOP -->
+        <div class="top-bar">
+
+            <h2>
+
+                ADMINISTRADORES
+
+            </h2>
+
+        </div>
+
+
+
+
+
+        <!-- LAYOUT -->
+        <div class="admin-layout">
+
+            <!-- IZQUIERDA -->
+            <div class="admin-convertir">
+
+                <h3>
+
+                    CONVERTIR USUARIO A ADMIN
+
+                </h3>
+
+
+
+
+
+                <input type="hidden"
+                       id="admin-id-usuario">
+
+                <input type="text"
+                       id="buscar-usuario-admin"
+                       placeholder="Buscar usuario..."
+                       onkeyup="buscarUsuariosAdmin()">
+
+                <div id="lista-usuarios-admin"></div>
+
+            </div>
+
+
+
+
+
+            <!-- DERECHA -->
+            <div class="admin-datos">
+
+                <h3>
+
+                    DATOS ADMIN
+
+                </h3>
+
+
+
+
+
+                <input type="hidden"
+                       id="admin-editando-id">
+
+                <label>
+                    Nombre administrador
+                </label>
+
+                <input type="text"
+                       id="admin-nombre"
+                       placeholder="Nombre">
+
+
+
+
+
+                <label>
+                    Instagram
+                </label>
+
+                <input type="text"
+                       id="admin-ig"
+                       placeholder="https://instagram.com/usuario">
+
+
+
+
+
+                <label>
+                    WhatsApp
+                </label>
+
+                <input type="text"
+                       id="admin-num"
+                       placeholder="WhatsApp">
+
+                <label>
+    Contraseña de aplicación Gmail
+</label>
+
+<input
+    type="password"
+    id="admin-app-pass"
+    placeholder="xxxxxxxxxxxxxxxx">
+
+
+
+                <button class="btn-agregar"
+                        onclick="convertirAdmin()">
+
+                    CONVERTIR A ADMIN
+
+                </button>
+
+
+
+
+
+                <button class="btn-plata"
+                        onclick="guardarCambiosAdmin()">
+
+                    GUARDAR CAMBIOS
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- TABLA -->
+        <div class="tabla-container">
+
+            <table class="data-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>INSTAGRAM</th>
+                        <th>WHATSAPP</th>
+                        <th>PRINCIPAL</th>
+                        <th>ACCIONES</th>
+
+                    </tr>
+
+                </thead>
+
+
+
+
+
+                <tbody id="tabla-admins"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+
+
+<!-- =====================================
+OVERLAY CATALOGO
+===================================== -->
+
+<div id="overlay-catalogo"
+     class="overlay hidden">
+</div>
+
+
+<!-- =====================================
+MODAL CREDITOS
+===================================== -->
+
+<div
+    id="modal-creditos-admin"
+    class="overlay hidden">
+
+    <div class="creditos-admin-box">
+
+        <h1>
+
+            444 ESSENCE
+
+        </h1>
+
+        <p>
+
+            Sistema de gestión de perfumería
+
+        </p>
+
+        <hr>
+
+        <h3>
+
+            Desarrolladores
+
+        </h3>
+
+        <p>
+
+            👨‍💻 Eder Jhovany Espinoza Yañez
+
+        </p>
+
+        <p>
+
+            👩‍💻 Maybelin Guadalupe Morales Villatoro
+
+        </p>
+
+        <p>
+
+            👨‍💻 Melani Naomi Sanchez Parada
+
+        </p>
+
+        <p>
+
+            👨‍💻 Luis Alexander Bautista Sanchez
+
+        </p>
+
+        <hr>
+
+        <h3>
+
+            Tecnologías
+
+        </h3>
+
+        <p>
+
+            HTML5 • CSS3 • JavaScript
+
+        </p>
+
+        <p>
+
+            Node.js • Express
+
+        </p>
+
+        <p>
+
+            Prisma ORM • MySQL
+
+        </p>
+
+        <hr>
+
+        <p>
+
+            Versión 1.0
+
+        </p>
+
+        <p>
+
+            2026
+
+        </p>
+
+        <button
+            class="btn-plata"
+            onclick="cerrarCreditosAdmin()">
+
+            CERRAR
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+SCRIPTS
+========================================= -->
+
+<script src="/js/index_js/index.js"></script>
+
+<script src="/js/index_js/productos.js"></script>
+
+<script src="/js/index_js/usuarios.js"></script>
+
+<script src="/js/index_js/pedidos.js"></script>
+
+<script src="/js/index_js/registros.js"></script>
+
+<script src="/js/index_js/proveedores.js"></script>
+
+<script src="/js/index_js/administrador.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+/* =====================================
+RESET GENERAL
+===================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+
+
+
+/* =====================================
+BODY
+===================================== */
+
+body{
+
+    min-height:100vh;
+
+    font-family:Arial;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+
+    linear-gradient(
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.85)
+    ),
+
+    url('/imagenes/logo.jpeg');
+
+    background-size:cover;
+
+    background-position:center;
+
+    position:relative;
+
+}
+
+
+
+
+
+/* =====================================
+OVERLAY
+===================================== */
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    backdrop-filter:blur(12px);
+
+}
+
+
+
+
+
+/* =====================================
+CONTENEDOR PRINCIPAL
+===================================== */
+
+.auth-container{
+
+    position:relative;
+
+    z-index:10;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:20px;
+
+}
+
+
+
+
+
+/* =====================================
+CAJA LOGIN
+===================================== */
+
+.auth-box{
+
+    width:100%;
+
+    max-width:430px;
+
+    background:rgba(0,0,0,0.82);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:24px;
+
+    padding:45px;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 0 40px rgba(255,255,255,0.05);
+
+}
+
+
+
+
+
+/* =====================================
+LOGO
+===================================== */
+
+.logo{
+
+    text-align:center;
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    letter-spacing:5px;
+
+    color:silver;
+
+    margin-bottom:40px;
+
+}
+
+
+
+
+
+/* =====================================
+TITULOS
+===================================== */
+
+h1{
+
+    font-size:30px;
+
+    margin-bottom:35px;
+
+    color:white;
+
+}
+
+
+
+
+
+/* =====================================
+GRUPO INPUT
+===================================== */
+
+.input-group{
+
+    position:relative;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+/* =====================================
+INPUTS
+===================================== */
+
+.input-group input{
+
+    width:100%;
+
+    padding:20px 15px 8px 15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#1a1a1a;
+
+    color:white;
+
+    font-size:16px;
+
+    outline:none;
+
+    border:1px solid transparent;
+
+    transition:0.3s;
+
+}
+
+
+
+
+
+/* =====================================
+FOCUS INPUT
+===================================== */
+
+.input-group input:focus{
+
+    border:1px solid silver;
+
+}
+
+
+
+
+
+/* =====================================
+LABELS INPUT
+===================================== */
+
+.input-group label{
+
+    position:absolute;
+
+    left:15px;
+
+    top:16px;
+
+    color:#888;
+
+    pointer-events:none;
+
+    transition:0.3s;
+
+    font-size:15px;
+
+}
+
+
+
+
+
+/* =====================================
+LABEL ACTIVO
+===================================== */
+
+.input-group input:focus + label,
+.input-group input:valid + label{
+
+    top:6px;
+
+    font-size:11px;
+
+    color:silver;
+
+}
+
+
+
+
+
+/* =====================================
+BOTON LOGIN
+===================================== */
+
+.btn-auth{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:silver;
+
+    color:black;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+
+
+
+/* =====================================
+HOVER BOTON
+===================================== */
+
+.btn-auth:hover{
+
+    transform:scale(1.02);
+
+}
+
+
+
+
+
+/* =====================================
+CAMBIO LOGIN / REGISTRO
+===================================== */
+
+.switch-text{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    color:#999;
+
+}
+
+
+
+
+
+/* =====================================
+LINK CAMBIO
+===================================== */
+
+.switch-text span{
+
+    color:silver;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+.switch-text span:hover{
+
+    text-decoration:underline;
+
+}
+
+
+
+
+
+/* =====================================
+OCULTO
+===================================== */
+
+.hidden{
+
+    display:none;
+
+}
+
+
+
+
+
+/* =====================================
+RESPONSIVE MOVIL
+===================================== */
+
+@media(max-width:500px){
+
+    .auth-box{
+
+        padding:35px 25px;
+
+    }
+
+
+
+
+
+    h1{
+
+        font-size:25px;
+
+    }
+
+
+
+
+
+    .logo{
+
+        font-size:26px;
+
+        letter-spacing:3px;
+
+    }
+
+}

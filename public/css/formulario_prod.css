@@ -1,0 +1,665 @@
+/* =====================================
+BODY
+===================================== */
+
+body{
+
+    margin:0;
+
+    background:black;
+
+    color:white;
+
+    font-family:Arial;
+
+    padding:20px;
+
+    box-sizing:border-box;
+
+    overflow:auto;
+
+}
+
+
+
+
+
+/* =====================================
+LAYOUT PRINCIPAL
+===================================== */
+
+.admin-layout{
+
+    display:grid;
+
+    grid-template-columns:1fr 350px;
+
+    gap:20px;
+
+    align-items:start;
+
+}
+
+
+
+
+
+/* =====================================
+FORMULARIO
+===================================== */
+
+.form-box{
+
+    background:#050505;
+
+    border:1px solid #111;
+
+    border-radius:28px;
+
+    padding:26px;
+
+    overflow-y:auto;
+
+    box-shadow:
+    0 0 0 1px rgba(255,255,255,.02),
+    0 20px 50px rgba(0,0,0,.5);
+
+}
+
+
+
+
+
+/* =====================================
+GRID FORMULARIO
+===================================== */
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:14px;
+
+    margin-top:30px;
+
+}
+
+
+
+
+
+/* =====================================
+INPUTS
+===================================== */
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    background:#0f0f0f;
+
+    border:1px solid #1f1f1f;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:16px;
+
+    box-sizing:border-box;
+
+    outline:none;
+
+    font-size:14px;
+
+    transition:.25s;
+
+}
+
+
+
+
+
+/* =====================================
+FOCUS INPUTS
+===================================== */
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border-color:#444;
+
+    background:#151515;
+
+    box-shadow:
+    0 0 0 3px rgba(255,255,255,.04);
+
+}
+
+
+
+
+
+/* =====================================
+TEXTAREA
+===================================== */
+
+textarea{
+
+    resize:none;
+
+    min-height:80px;
+
+}
+
+
+
+
+
+/* =====================================
+LABELS
+===================================== */
+
+label{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    color:#aaa;
+
+    font-size:12px;
+
+}
+
+
+
+
+
+/* =====================================
+TOP BAR
+===================================== */
+
+.top-bar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+
+
+
+
+/* =====================================
+TITULO
+===================================== */
+
+.top-bar h1{
+
+    font-size:42px;
+
+    font-weight:900;
+
+    letter-spacing:-2px;
+
+}
+
+
+
+
+
+/* =====================================
+BOTONES
+===================================== */
+
+.btn{
+
+    border:none;
+
+    background:#111;
+
+    color:white;
+
+    padding:14px 22px;
+
+    border-radius:14px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    border:1px solid #222;
+
+}
+
+
+
+
+
+/* =====================================
+BOTON PRINCIPAL
+===================================== */
+
+.btn-success{
+
+    background:white;
+
+    color:black;
+
+    border:none;
+
+}
+
+
+
+
+
+.btn-success:hover{
+
+    background:#ddd;
+
+}
+
+
+
+
+
+/* =====================================
+HOVER BOTONES
+===================================== */
+
+.btn:hover{
+
+    background:#181818;
+
+    transform:translateY(-2px);
+
+    border-color:#333;
+
+}
+
+
+
+
+
+/* =====================================
+AREA PREVIEW
+===================================== */
+
+.preview-area{
+
+    position:sticky;
+
+    top:0;
+
+}
+
+
+
+
+
+/* =====================================
+CARD PREVIEW
+===================================== */
+
+.preview-card{
+
+    background:#070707;
+
+    border:1px solid #151515;
+
+    border-radius:28px;
+
+    padding:20px;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,.5);
+
+}
+
+
+
+
+
+/* =====================================
+IMAGEN PREVIEW
+===================================== */
+
+.preview-card img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:cover;
+
+    border-radius:22px;
+
+    background:#111;
+
+    margin-bottom:20px;
+
+    border:1px solid #1f1f1f;
+
+}
+
+
+
+
+
+/* =====================================
+MARCA PREVIEW
+===================================== */
+
+.preview-marca{
+
+    color:silver;
+
+    letter-spacing:2px;
+
+    margin-bottom:8px;
+
+    font-size:12px;
+
+}
+
+
+
+
+
+/* =====================================
+NOMBRE PREVIEW
+===================================== */
+
+.preview-card h2{
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+/* =====================================
+PRECIO PREVIEW
+===================================== */
+
+.preview-precio{
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    margin-bottom:12px;
+
+}
+
+
+
+
+
+/* =====================================
+DESCRIPCION PREVIEW
+===================================== */
+
+.preview-card p{
+
+    color:#bbb;
+
+    line-height:1.4;
+
+    font-size:13px;
+
+}
+
+
+
+
+
+/* =====================================
+TITULO SECCION
+===================================== */
+
+.section-title{
+
+    margin-top:22px;
+
+    margin-bottom:14px;
+
+    font-size:17px;
+
+}
+
+
+
+
+
+/* =====================================
+SELECT PERSONALIZADO
+===================================== */
+
+select{
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    -moz-appearance:none;
+
+    background:#111
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 20 20'%3E%3Cpath d='M5 7l5 5 5-5H5z'/%3E%3C/svg%3E")
+    no-repeat right 14px center;
+
+    background-size:16px;
+
+    padding-right:45px;
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+/* =====================================
+FOCUS EXTRA
+===================================== */
+
+select:focus,
+input:focus,
+textarea:focus{
+
+    border-color:#444;
+
+    box-shadow:0 0 0 2px #1b1b1b;
+
+}
+
+
+
+
+
+/* =====================================
+DECANTS OCULTOS
+===================================== */
+
+.decants-grid.oculto{
+
+    display:none;
+
+}
+
+
+
+
+
+/* =====================================
+AREA CHECKBOX
+===================================== */
+
+.check-area{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin:18px 0;
+
+}
+
+
+
+
+
+/* =====================================
+CHECKBOX MODERNO
+===================================== */
+
+.check-area input{
+
+    appearance:none;
+
+    width:24px;
+
+    height:24px;
+
+    border-radius:8px;
+
+    background:#111;
+
+    border:1px solid #333;
+
+    cursor:pointer;
+
+    position:relative;
+
+    transition:.25s;
+
+}
+
+
+
+
+
+/* =====================================
+CHECKBOX ACTIVO
+===================================== */
+
+.check-area input:checked{
+
+    background:white;
+
+    border-color:white;
+
+}
+
+
+
+
+
+/* =====================================
+ICONO CHECK
+===================================== */
+
+.check-area input:checked::after{
+
+    content:'✓';
+
+    color:black;
+
+    font-weight:bold;
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    font-size:14px;
+
+}
+
+
+
+
+
+/* =====================================
+LABEL CHECKBOX
+===================================== */
+
+.check-area label{
+
+    margin:0;
+
+    color:#ccc;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+}
+
+
+
+
+
+/* =====================================
+RESPONSIVE
+===================================== */
+
+@media(max-width:1000px){
+
+    body{
+
+        overflow:auto;
+
+    }
+
+
+
+
+
+    .admin-layout{
+
+        grid-template-columns:1fr;
+
+        height:auto;
+
+    }
+
+
+
+
+
+    .preview-area{
+
+        position:relative;
+
+    }
+
+}

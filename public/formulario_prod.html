@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>444 ESSENCE - ADMIN</title>
+
+    <link rel="stylesheet"
+          href="/css/formulario_prod.css">
+
+    <!-- ICONOS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="admin-container">
+
+    <!-- TOP -->
+    <div class="top-bar">
+
+        <h1>
+            REGISTRO DE PRODUCTOS
+        </h1>
+
+        <button class="btn"
+                onclick="location.href='/'">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            REGRESAR
+
+        </button>
+
+    </div>
+
+
+
+
+
+    <!-- ALERTA -->
+    <div id="alerta"
+         class="alerta-exito"
+         style="display:none;">
+
+        PRODUCTO AGREGADO CORRECTAMENTE
+
+    </div>
+
+
+
+
+
+    <!-- LAYOUT -->
+    <div class="admin-layout">
+
+
+
+
+        <!-- FORMULARIO -->
+        <div class="form-box">
+
+            <form id="formProducto">
+
+                <div class="form-grid">
+
+                    <!-- NOMBRE -->
+                    <div class="full">
+
+                        <label>NOMBRE</label>
+
+                        <input type="text"
+                               id="nombre"
+                               required>
+
+                    </div>
+
+
+
+
+
+                    <!-- MARCA -->
+                    <div>
+
+                        <label>MARCA</label>
+
+                        <input type="text"
+                               id="marca"
+                               required>
+
+                    </div>
+
+
+
+
+
+                    <!-- PRECIO -->
+                    <div>
+
+                        <label>PRECIO</label>
+
+                        <input type="number"
+                               step="0.01"
+                               id="precio"
+                               required>
+
+                    </div>
+
+
+
+
+
+                    <!-- CATEGORIA -->
+                    <div>
+
+                        <label>CATEGORÍA</label>
+
+                        <select id="categoria">
+
+                            <option value="Arabe">
+                                Árabe
+                            </option>
+
+                            <option value="Diseñador">
+                                Diseñador
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+
+
+                    <!-- GENERO -->
+                    <div>
+
+                        <label>GÉNERO</label>
+
+                        <select id="genero">
+
+                            <option value="Caballero">
+                                Caballero
+                            </option>
+
+                            <option value="Dama">
+                                Dama
+                            </option>
+
+                            <option value="Unisex">
+                                Unisex
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+
+
+                    <!-- STOCK -->
+                    <div>
+
+                        <label>STOCK</label>
+
+                        <input type="number"
+                               id="stock"
+                               value="1">
+
+                    </div>
+
+
+
+
+
+                    <!-- IMAGEN -->
+                    <div class="full">
+
+                        <label>IMAGEN URL</label>
+
+                        <input type="text"
+                               id="imagen_url">
+
+                    </div>
+
+
+
+
+
+                    <!-- DESCRIPCION -->
+                    <div class="full">
+
+                        <label>DESCRIPCIÓN</label>
+
+                        <textarea id="descripcion"></textarea>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <!-- DECANTS -->
+                <h2 class="section-title">
+                    DECANTS
+                </h2>
+
+
+
+
+
+                <div class="check-area">
+
+                    <input type="checkbox"
+                           id="es_decant">
+
+                    <label for="es_decant">
+
+                        ESTE PRODUCTO MANEJA DECANTS
+
+                    </label>
+
+                </div>
+
+
+
+
+
+                <div class="form-grid decants-grid">
+
+                    <div>
+
+                        <label>PRECIO 5ML</label>
+
+                        <input type="number"
+                               step="0.01"
+                               id="precio_decant_5ml">
+
+                    </div>
+
+
+
+
+
+                    <div>
+
+                        <label>PRECIO 10ML</label>
+
+                        <input type="number"
+                               step="0.01"
+                               id="precio_decant_10ml">
+
+                    </div>
+
+
+
+
+
+                    <div>
+
+                        <label>STOCK 5ML</label>
+
+                        <input type="number"
+                               id="stock_decant_5ml">
+
+                    </div>
+
+
+
+
+
+                    <div>
+
+                        <label>STOCK 10ML</label>
+
+                        <input type="number"
+                               id="stock_decant_10ml">
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <!-- BOTON -->
+                <div class="boton-area">
+
+                    <button type="submit"
+                            id="btnAgregar"
+                            class="btn btn-success">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        AGREGAR PRODUCTO
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+
+
+        <!-- PREVIEW -->
+        <div class="preview-area">
+
+            <div class="preview-card">
+
+                <img
+                    id="preview-img"
+                    src="/imagenes/default.png"
+                >
+
+                <div class="preview-marca"
+                     id="preview-marca">
+
+                    MARCA
+
+                </div>
+
+                <h2 id="preview-nombre">
+
+                    NOMBRE PERFUME
+
+                </h2>
+
+                <div class="preview-precio"
+                     id="preview-precio">
+
+                    $0
+
+                </div>
+
+                <p id="preview-desc">
+
+                    Descripción del perfume...
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/js/formulario_prod.js"></script>
+
+</body>
+</html>

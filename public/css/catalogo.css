@@ -1,0 +1,1409 @@
+/* =====================================
+RESET
+===================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+
+
+
+/* =====================================
+BODY
+===================================== */
+
+body{
+
+    font-family:Arial;
+
+    color:white;
+
+    background:
+
+    linear-gradient(
+        rgba(0,0,0,0.92),
+        rgba(0,0,0,0.92)
+    ),
+
+    url('/imagenes/logo.jpeg');
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+}
+
+
+
+
+
+/* =====================================
+HEADER
+===================================== */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    background:rgba(0,0,0,0.95);
+
+    backdrop-filter:blur(10px);
+
+    padding:20px 40px;
+
+    border-bottom:1px solid #111;
+
+    z-index:2000;
+
+}
+
+
+
+
+
+/* =====================================
+HEADER TOP
+===================================== */
+
+.header-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+
+
+/* =====================================
+LOGO
+===================================== */
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    letter-spacing:3px;
+
+    color:silver;
+
+    white-space:nowrap;
+
+}
+
+
+
+
+
+/* =====================================
+CATEGORIAS HEADER
+===================================== */
+
+.header-categorias{
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+
+
+/* =====================================
+BOTONES HEADER
+===================================== */
+
+.header-categorias button{
+
+    padding:10px 16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#111;
+
+    color:silver;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+
+
+
+.header-categorias button:hover{
+
+    background:#222;
+
+    color:white;
+
+}
+
+
+
+
+
+/* =====================================
+BUSCADOR
+===================================== */
+
+.search-box{
+
+    flex:1;
+
+    max-width:350px;
+
+    min-width:200px;
+
+}
+
+
+
+
+
+.search-box input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#111;
+
+    color:white;
+
+    outline:none;
+
+}
+
+
+
+
+
+/* =====================================
+ICONOS HEADER
+===================================== */
+
+.header-icons{
+
+    display:flex;
+
+    gap:20px;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+.header-icons i{
+
+    color:silver;
+
+    transition:0.3s;
+
+}
+
+
+
+
+
+.header-icons i:hover{
+
+    color:white;
+
+    transform:scale(1.1);
+
+}
+
+
+
+
+
+/* =====================================
+CATALOGO SECCIONES
+===================================== */
+
+.catalogo-secciones{
+
+    width:100%;
+
+    padding:40px;
+
+    padding-right:440px;
+
+    box-sizing:border-box;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:60px;
+
+}
+
+
+
+
+/* =====================================
+SECCIONES
+===================================== */
+
+.catalogo-secciones section{
+
+    margin-bottom:80px;
+
+}
+
+
+
+
+
+/* =====================================
+TITULOS
+===================================== */
+
+.titulo-seccion{
+
+    font-size:32px;
+
+    margin-bottom:25px;
+
+    letter-spacing:4px;
+
+    color:white;
+
+}
+
+
+
+
+
+/* =====================================
+CATALOGO GRID
+===================================== */
+
+.catalogo{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fill,minmax(180px,1fr));
+
+    gap:18px;
+
+}
+
+
+
+
+
+/* =====================================
+CARD
+===================================== */
+
+.card{
+
+    background:rgba(5,5,5,0.95);
+
+    border:1px solid #111;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    transition:0.3s;
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    border:1px solid silver;
+
+    box-shadow:
+    0 0 20px rgba(192,192,192,0.2);
+
+}
+
+
+
+
+
+/* =====================================
+IMAGEN CARD
+===================================== */
+
+.card img{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:cover;
+
+    background:white;
+
+}
+
+
+
+
+
+/* =====================================
+CARD CONTENT
+===================================== */
+
+.card-content{
+
+    padding:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+
+
+
+
+/* =====================================
+MARCA
+===================================== */
+
+.marca{
+
+    color:#999;
+
+    font-size:13px;
+
+}
+
+
+
+
+
+/* =====================================
+NOMBRE
+===================================== */
+
+.nombre{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    line-height:1.4;
+
+}
+
+
+
+
+
+/* =====================================
+PRECIO
+===================================== */
+
+.precio{
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    color:silver;
+
+}
+
+
+
+
+
+/* =====================================
+BOTON CARD
+===================================== */
+
+.seleccionar{
+
+    margin-top:10px;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    background:silver;
+
+    color:black;
+
+    text-align:center;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+/* =====================================
+PANEL PERFUME
+===================================== */
+
+.slider{
+
+    position:fixed;
+
+    top:88px;
+
+    right:0;
+
+    width:400px;
+
+    height:calc(100vh - 88px);
+
+    background:#050505;
+
+    border-left:1px solid #222;
+
+    z-index:1000;
+
+    overflow-y:auto;
+
+}
+
+
+
+
+
+/* =====================================
+SLIDER CONTENT
+===================================== */
+
+.slider-content{
+
+    padding:
+    25px
+    25px
+    160px
+    25px;
+
+}
+
+
+
+
+
+/* =====================================
+PERFUME PANEL
+===================================== */
+
+.perfume-panel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+
+
+
+
+/* =====================================
+IMAGEN PERFUME
+===================================== */
+
+.perfume-panel img{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:contain;
+
+    border-radius:18px;
+
+    background:white;
+
+    padding:10px;
+
+}
+
+
+
+
+
+/* =====================================
+INFO PERFUME
+===================================== */
+
+.perfume-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+
+
+
+
+/* =====================================
+MARCA PERFUME
+===================================== */
+
+.perfume-marca{
+
+    color:#888;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+
+
+
+/* =====================================
+NOMBRE PERFUME
+===================================== */
+
+.perfume-info h2{
+
+    font-size:26px;
+
+    line-height:1.3;
+
+}
+
+
+
+
+
+/* =====================================
+PRECIO PERFUME
+===================================== */
+
+.slider-precio{
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    color:silver;
+
+}
+
+
+
+
+
+/* =====================================
+GENERO PERFUME
+===================================== */
+
+.slider-genero{
+
+    margin-top:8px;
+
+    color:#00ffaa;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+/* =====================================
+DESCRIPCION PERFUME
+===================================== */
+
+.perfume-info p{
+
+    color:#aaa;
+
+    line-height:1.6;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+/* =====================================
+DECANTS
+===================================== */
+
+.decant-box{
+
+    background:#111;
+
+    border:1px solid #222;
+
+    border-radius:16px;
+
+    padding:14px;
+
+}
+
+
+
+
+
+.decant-titulo{
+
+    font-size:13px;
+
+    color:#888;
+
+    margin-bottom:12px;
+
+    letter-spacing:1px;
+
+}
+
+
+
+
+
+.decant-medidas{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+
+
+.decant-medidas span{
+
+    background:linear-gradient(
+        135deg,
+        silver,
+        #d9d9d9
+    );
+
+    color:black;
+
+    padding:10px 16px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    box-shadow:
+    0 0 10px rgba(255,255,255,0.1);
+
+}
+
+
+
+
+
+/* =====================================
+BOTON PEDIDO
+===================================== */
+
+.btn-pedido{
+
+    display:block;
+
+    margin-top:25px;
+
+    margin-bottom:30px;
+
+    padding:16px;
+
+    border-radius:14px;
+
+    background:silver;
+
+    color:black;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    font-weight:bold;
+
+    transition:0.3s;
+
+}
+
+
+
+
+
+.btn-pedido:hover{
+
+    transform:scale(1.02);
+
+}
+
+
+
+
+
+/* =====================================
+BOTON AGOTADO
+===================================== */
+
+.btn-agotado{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#1b1b1b;
+
+    color:#777;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:not-allowed;
+
+    margin-top:18px;
+
+    opacity:.7;
+
+}
+
+
+
+
+
+/* =====================================
+AGOTADO TEXTO
+===================================== */
+
+.slider-agotado{
+
+    background:#2a0000;
+
+    border:1px solid #ff2a2a;
+
+    color:#ff5c5c;
+
+    padding:10px;
+
+    border-radius:12px;
+
+    margin-bottom:14px;
+
+    text-align:center;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+}
+
+
+
+
+
+/* =====================================
+CARD AGOTADA
+===================================== */
+
+.agotado-card{
+
+    opacity:.45;
+
+    filter:grayscale(100%);
+
+    cursor:not-allowed;
+
+    pointer-events:none;
+
+}
+
+
+
+
+
+.agotado-texto{
+
+    background:#300000;
+
+    border:1px solid #ff2a2a;
+
+    color:#ff6b6b;
+
+    text-align:center;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    margin-top:12px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+}
+
+
+
+
+
+/* =====================================
+FOOTER
+===================================== */
+
+.footer-redes{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    background:rgba(0,0,0,0.96);
+
+    backdrop-filter:blur(10px);
+
+    border-top:1px solid #111;
+
+    padding:15px 30px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    z-index:3000;
+
+}
+
+
+
+
+
+/* =====================================
+ADMIN FOOTER
+===================================== */
+
+.footer-admin{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    color:#888;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+.footer-titulo{
+
+    color:silver;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    font-size:13px;
+
+}
+
+
+
+
+
+/* =====================================
+SOCIAL
+===================================== */
+
+.footer-social{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    flex-shrink:0;
+
+}
+
+
+
+
+
+.footer-social a{
+
+    color:silver;
+
+    text-decoration:none;
+
+    font-size:24px;
+
+    transition:0.3s;
+
+}
+
+
+
+
+
+.footer-social a:hover{
+
+    color:white;
+
+    transform:scale(1.1);
+
+}
+
+
+
+
+
+/* =====================================
+LOGIN BTN
+===================================== */
+
+.login-btn{
+
+    position:fixed;
+
+    bottom:85px;
+
+    right:25px;
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:silver;
+
+    color:black;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    z-index:4000;
+
+    box-shadow:
+    0 0 20px rgba(192,192,192,0.3);
+
+}
+
+
+
+
+
+/* =====================================
+RESPONSIVE TABLET
+===================================== */
+
+@media(max-width:1100px){
+
+    .catalogo-secciones{
+
+    padding:20px;
+
+    padding-right:20px;
+
+}
+
+    .slider{
+
+        position:fixed;
+
+        top:0;
+
+        left:0;
+
+        width:100%;
+
+        height:100vh;
+
+        background:#050505;
+
+        z-index:9999;
+
+        overflow-y:auto;
+
+        transform:translateY(100%);
+
+        transition:0.4s;
+
+        border:none;
+
+    }
+
+
+
+
+
+    .slider.active{
+
+        transform:translateY(0);
+
+    }
+
+
+
+
+
+    .slider-content{
+
+        padding:
+        25px
+        25px
+        120px
+        25px;
+
+    }
+
+
+
+
+
+    .cerrar-movil{
+
+        position:fixed;
+
+        top:20px;
+
+        right:20px;
+
+        width:50px;
+
+        height:50px;
+
+        border:none;
+
+        border-radius:50%;
+
+        background:silver;
+
+        color:black;
+
+        font-size:22px;
+
+        font-weight:bold;
+
+        z-index:10000;
+
+        cursor:pointer;
+
+    }
+
+}
+
+
+
+
+
+/* =====================================
+RESPONSIVE MOVIL
+===================================== */
+
+@media(max-width:700px){
+
+    header{
+
+        padding:20px;
+
+    }
+
+
+
+
+
+    .header-top{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+
+
+
+
+    .search-box{
+
+        max-width:none;
+
+    }
+
+
+
+
+
+    .catalogo{
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+}
+
+}
+
+.creditos-box{
+
+    background:#0d0d0d;
+
+    color:white;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    width:650px;
+
+    max-width:90%;
+
+    text-align:center;
+
+    border:1px solid #222;
+
+    box-shadow:
+        0 0 40px rgba(0,0,0,.6);
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+
+
+.creditos-box h2{
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+.creditos-box p{
+
+    color:#bbb;
+
+    margin-bottom:20px;
+
+    font-size:18px;
+
+}
+
+
+
+
+
+.creditos-box hr{
+
+    border:none;
+
+    border-top:1px solid #333;
+
+    margin:30px 0;
+
+}
+
+
+
+
+
+.btn-descarga{
+
+    width:100%;
+
+    margin:15px 0;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:silver;
+
+    color:black;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.btn-descarga:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+.btn-cerrar-modal{
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#222;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.modal-creditos{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100vw;
+
+    height:100vh;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(8px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+}
+
+.oculto{
+
+    display:none;
+
+}
