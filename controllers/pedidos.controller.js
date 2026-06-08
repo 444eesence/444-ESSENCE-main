@@ -96,7 +96,7 @@ async function crearPedido(req, res){
 
             mililitros_decan
 
-        } = req.body;
+        } = req.body; //req.body
 
 
 
@@ -348,21 +348,28 @@ async function crearPedido(req, res){
 
         });
 
-await enviarCorreoPedido({
+try{
 
-    pedido,
+    await enviarCorreoPedido({
 
-    telefono,
-    direccion,
-    referencias,
+        pedido,
+        telefono,
+        direccion,
+        referencias,
+        tipo_producto,
+        cantidad,
+        precio_final
 
-    tipo_producto,
+    });
 
-    cantidad,
+}catch(error){
 
-    precio_final
+    console.log(
+        'Correo no enviado:',
+        error.message
+    );
 
-});
+}
 
 
 
