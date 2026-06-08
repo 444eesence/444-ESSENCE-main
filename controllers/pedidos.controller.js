@@ -348,6 +348,9 @@ async function crearPedido(req, res){
 
         });
 
+
+console.log('ANTES DEL CORREO');
+
 try{
 
     await enviarCorreoPedido({
@@ -371,7 +374,9 @@ try{
 
 }
 
+console.log('DESPUES DEL CORREO');
 
+console.log('ENVIANDO RESPUESTA');
 
         // ======================================
         // RESPUESTA
