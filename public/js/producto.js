@@ -47,7 +47,7 @@ async function cargarProducto(){
         // ======================================
 
         const res =
-            await fetch(`/api/productos/${id}`);
+    await fetch(`/api/productos/${id}`);
 
 
 
@@ -324,9 +324,27 @@ ACTUALIZAR PREVIEW
 
 function actualizarPreview(){
 
-    // ======================================
-    // IMAGEN
-    // ======================================
+// ======================================
+// IMAGEN
+// ======================================
+
+const archivo =
+
+    document.getElementById(
+        'imagen'
+    ).files[0];
+
+if(archivo){
+
+    document.getElementById(
+        'preview-img'
+    ).src =
+
+        URL.createObjectURL(
+            archivo
+        );
+
+}else{
 
     document.getElementById(
         'preview-img'
@@ -340,7 +358,7 @@ function actualizarPreview(){
 
         '/imagenes/default.png';
 
-
+}
 
 
 
@@ -473,15 +491,12 @@ document
 
 
 
-
 document
-.getElementById('imagen_url')
+.getElementById('imagen')
 .addEventListener(
-    'input',
+    'change',
     actualizarPreview
 );
-
-
 
 
 
@@ -514,387 +529,141 @@ async function guardarCambios(){
     BODY PRODUCTO
     ====================================== */
 
-    const body = {
+    const formData = new FormData();
+
+formData.append(
+    'nombre',
+    document.getElementById('nombre').value
+);
+
+formData.append(
+    'marca',
+    document.getElementById('marca').value
+);
+
+formData.append(
+    'precio',
+    document.getElementById('precio').value
+);
+
+formData.append(
+    'stock',
+    document.getElementById('stock').value
+);
+
+formData.append(
+    'categoria',
+    document.getElementById('categoria').value
+);
+
+formData.append(
+    'genero',
+    document.getElementById('genero').value
+);
+
+formData.append(
+    'descripcion',
+    document.getElementById('descripcion').value
+);
+
+formData.append(
+    'es_decant',
+    document.getElementById('es_decant').checked
+);
+
+formData.append(
+    'precio_decant_5ml',
+    document.getElementById('precio_decant_5ml').value
+);
+
+formData.append(
+    'precio_decant_10ml',
+    document.getElementById('precio_decant_10ml').value
+);
+
+formData.append(
+    'stock_decant_5ml',
+    document.getElementById('stock_decant_5ml').value
+);
+
+formData.append(
+    'stock_decant_10ml',
+    document.getElementById('stock_decant_10ml').value
+);
+
+const imagen =
+
+    document.getElementById(
+        'imagen'
+    ).files[0];
+
+if(imagen){
+
+    formData.append(
+        'imagen',
+        imagen
+    );
+
+}
 
-        // ======================================
-        // NOMBRE
-        // ======================================
 
-        nombre:
-            document.getElementById('nombre').value,
-
-
-
-
-
-        // ======================================
-        // MARCA
-        // ======================================
-
-        marca:
-            document.getElementById('marca').value,
-
-
-
-
-
-        // ======================================
-        // PRECIO
-        // ======================================
-
-        precio:
-
-            parseFloat(
-                document.getElementById('precio').value
-            ),
-
-
-
-
-
-        // ======================================
-        // STOCK
-        // ======================================
-
-        stock:
-
-            parseInt(
-                document.getElementById('stock').value
-            ),
-
-
-
-
-
-        // ======================================
-        // IMAGEN
-        // ======================================
-
-        imagen_url:
-            document.getElementById('imagen_url').value,
-
-
-
-
-
-        // ======================================
-        // CATEGORÍA
-        // ======================================
-
-        categoria:
-            document.getElementById('categoria').value,
-
-
-
-
-
-        // ======================================
-        // GÉNERO
-        // ======================================
-
-        genero:
-            document.getElementById('genero').value,
-
-
-
-
-
-        // ======================================
-        // DESCRIPCIÓN
-        // ======================================
-
-        descripcion:
-            document.getElementById('descripcion').value,
-
-
-
-
-
-        /* ======================================
-        DECANTS
-        ====================================== */
-
-        // ======================================
-        // TIENE DECANTS
-        // ======================================
-
-        es_decant:
-
-            document.getElementById(
-                'es_decant'
-            ).checked,
-
-
-
-
-
-        // ======================================
-        // PRECIO 5ML
-        // ======================================
-
-        precio_decant_5ml:
-
-            document.getElementById(
-                'precio_decant_5ml'
-            ).value
-
-            ?
-
-            parseFloat(
-
-                document.getElementById(
-                    'precio_decant_5ml'
-                ).value
-
-            )
-
-            :
-
-            null,
-
-
-
-
-
-        // ======================================
-        // PRECIO 10ML
-        // ======================================
-
-        precio_decant_10ml:
-
-            document.getElementById(
-                'precio_decant_10ml'
-            ).value
-
-            ?
-
-            parseFloat(
-
-                document.getElementById(
-                    'precio_decant_10ml'
-                ).value
-
-            )
-
-            :
-
-            null,
-
-
-
-
-
-        // ======================================
-        // STOCK 5ML
-        // ======================================
-
-        stock_decant_5ml:
-
-            document.getElementById(
-                'stock_decant_5ml'
-            ).value
-
-            ?
-
-            parseInt(
-
-                document.getElementById(
-                    'stock_decant_5ml'
-                ).value
-
-            )
-
-            :
-
-            null,
-
-
-
-
-
-        // ======================================
-        // STOCK 10ML
-        // ======================================
-
-        stock_decant_10ml:
-
-            document.getElementById(
-                'stock_decant_10ml'
-            ).value
-
-            ?
-
-            parseInt(
-
-                document.getElementById(
-                    'stock_decant_10ml'
-                ).value
-
-            )
-
-            :
-
-            null
-
-    };
 
 /* ======================================
 VALIDAR PRECIOS Y STOCKS
 ====================================== */
 
-if(body.precio < 0){
-
-    alert(
-        'El precio no puede ser negativo'
-    );
-
+if(
+    Number(document.getElementById('precio').value) < 0
+){
+    alert('El precio no puede ser negativo');
     return;
-
-}
-
-if(body.stock < 0){
-
-    alert(
-        'El stock no puede ser negativo'
-    );
-
-    return;
-
 }
 
 if(
-
-    body.precio_decant_5ml !== null
-
-    &&
-
-    body.precio_decant_5ml < 0
-
+    Number(document.getElementById('stock').value) < 0
 ){
+    alert('El stock no puede ser negativo');
+    return;
+}
+
+/* ======================================
+ENVIAR ACTUALIZACIÓN
+====================================== */
+
+const res =
+
+    await fetch(`/api/productos/${id}`, {
+
+        method:'PUT',
+
+        body: formData
+
+    });
+
+const data =
+    await res.json();
+
+/* ======================================
+ACTUALIZADO
+====================================== */
+
+if(data.ok){
 
     alert(
-        'El precio del decant 5ml no puede ser negativo'
+        'Producto actualizado'
     );
 
-    return;
+    window.location.href =
+        '/index.html';
+
+}else{
+
+    alert(
+        data.error || 'Error'
+    );
 
 }
 
-if(
-
-    body.precio_decant_10ml !== null
-
-    &&
-
-    body.precio_decant_10ml < 0
-
-){
-
-    alert(
-        'El precio del decant 10ml no puede ser negativo'
-    );
-
-    return;
-
-}
-
-if(
-
-    body.stock_decant_5ml !== null
-
-    &&
-
-    body.stock_decant_5ml < 0
-
-){
-
-    alert(
-        'El stock del decant 5ml no puede ser negativo'
-    );
-
-    return;
-
-}
-
-if(
-
-    body.stock_decant_10ml !== null
-
-    &&
-
-    body.stock_decant_10ml < 0
-
-){
-
-    alert(
-        'El stock del decant 10ml no puede ser negativo'
-    );
-
-    return;
-
-}
-
-
-
-    /* ======================================
-    ENVIAR ACTUALIZACIÓN
-    ====================================== */
-
-    const res =
-
-        await fetch(`/api/productos/${id}`, {
-
-            method:'PUT',
-
-            headers:{
-                'Content-Type':'application/json'
-            },
-
-            body:JSON.stringify(body)
-
-        });
-
-
-
-
-
-    const data =
-        await res.json();
-
-
-
-
-
-    /* ======================================
-    ACTUALIZADO
-    ====================================== */
-
-    if(data.ok){
-
-        alert(
-            'Producto actualizado'
-        );
-
-
-
-
-
-        window.location.href =
-            '/index.html';
-
-    }
-
-    /* ======================================
-    ERROR
-    ====================================== */
-
-    else{
-
-        alert(
-            data.error || 'Error'
-        );
-
-    }
 
 }
 

@@ -10,6 +10,8 @@ require('express');
 const router =
 express.Router();
 
+const upload =
+require('../servicios/multer');
 
 
 
@@ -62,11 +64,9 @@ router.get(
 // ======================================
 
 router.post(
-
     '/',
-
+    upload.single('imagen'),
     productosController.crearProducto
-
 );
 
 
@@ -78,11 +78,9 @@ router.post(
 // ======================================
 
 router.put(
-
     '/:id',
-
+    upload.single('imagen'),
     productosController.actualizarProducto
-
 );
 
 

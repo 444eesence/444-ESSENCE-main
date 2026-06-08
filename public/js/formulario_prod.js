@@ -100,16 +100,6 @@ document
 
 
 
-        // ======================================
-        // IMAGEN
-        // ======================================
-
-        imagen_url:
-
-            document
-            .getElementById('imagen_url')
-            .value,
-
 
 
 
@@ -394,19 +384,53 @@ if(
     CREAR PRODUCTO
     ====================================== */
 
-    const res =
+    const formData = new FormData();
 
-        await fetch('/api/productos', {
+Object.keys(body).forEach(key => {
 
-            method:'POST',
+    formData.append(
+        key,
+        body[key]
+    );
 
-            headers:{
-                'Content-Type':'application/json'
-            },
+});
 
-            body:JSON.stringify(body)
 
-        });
+
+
+
+const imagen =
+
+    document
+    .getElementById('imagen')
+    .files[0];
+
+
+
+
+
+if(imagen){
+
+    formData.append(
+        'imagen',
+        imagen
+    );
+
+}
+
+
+
+
+
+const res =
+
+    await fetch('/api/productos', {
+
+        method:'POST',
+
+        body:formData
+
+    });
 
 
 
@@ -513,7 +537,7 @@ const descripcion =
 
 
 const imagen =
-    document.getElementById('imagen_url');
+    document.getElementById('imagen');
 
 
 
@@ -603,16 +627,34 @@ function actualizarPreview(){
 
 
     // ======================================
-    // IMAGEN
-    // ======================================
+// IMAGEN
+// ======================================
+
+const archivo =
+
+    imagen.files[0];
+
+if(archivo){
 
     document.getElementById(
         'preview-img'
     ).src =
 
-        imagen.value ||
+        URL.createObjectURL(
+            archivo
+        );
+
+}
+
+else{
+
+    document.getElementById(
+        'preview-img'
+    ).src =
 
         '/imagenes/default.png';
+
+}
 
 }
 
@@ -744,7 +786,7 @@ descripcion.addEventListener(
 
 
 imagen.addEventListener(
-    'input',
+    'change',
     actualizarPreview
 );
 

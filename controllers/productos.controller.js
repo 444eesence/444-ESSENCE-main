@@ -147,13 +147,23 @@ async function crearProducto(req, res){
                         req.body.marca,
 
                     precio:
-                        req.body.precio,
+    parseFloat(req.body.precio),
 
-                    stock:
-                        req.body.stock,
+stock:
+    parseInt(req.body.stock),
 
                     imagen_url:
-                        req.body.imagen_url || '',
+
+    req.file
+
+    ?
+
+    '/imagenes/' +
+    req.file.filename
+
+    :
+
+    '',
 
                     categoria:
                         req.body.categoria,
@@ -164,20 +174,28 @@ async function crearProducto(req, res){
                     descripcion:
                         req.body.descripcion || '',
 
-                    es_decant:
-                        req.body.es_decant,
+                  es_decant:
+    req.body.es_decant === 'true',
 
-                    precio_decant_5ml:
-                        req.body.precio_decant_5ml,
+precio_decant_5ml:
+    req.body.precio_decant_5ml
+        ? parseFloat(req.body.precio_decant_5ml)
+        : null,
 
-                    precio_decant_10ml:
-                        req.body.precio_decant_10ml,
+precio_decant_10ml:
+    req.body.precio_decant_10ml
+        ? parseFloat(req.body.precio_decant_10ml)
+        : null,
 
-                    stock_decant_5ml:
-                        req.body.stock_decant_5ml,
+stock_decant_5ml:
+    req.body.stock_decant_5ml
+        ? parseInt(req.body.stock_decant_5ml)
+        : null,
 
-                    stock_decant_10ml:
-                        req.body.stock_decant_10ml
+stock_decant_10ml:
+    req.body.stock_decant_10ml
+        ? parseInt(req.body.stock_decant_10ml)
+        : null
 
                 }
 
@@ -239,13 +257,23 @@ async function actualizarProducto(req, res){
                         req.body.marca,
 
                     precio:
-                        req.body.precio,
+    parseFloat(req.body.precio),
 
-                    stock:
-                        req.body.stock,
+stock:
+    parseInt(req.body.stock),
 
                     imagen_url:
-                        req.body.imagen_url,
+
+    req.file
+
+    ?
+
+    '/imagenes/' +
+    req.file.filename
+
+    :
+
+    req.body.imagen_url,
 
                     categoria:
                         req.body.categoria,
@@ -257,19 +285,27 @@ async function actualizarProducto(req, res){
                         req.body.descripcion,
 
                     es_decant:
-                        req.body.es_decant,
+    req.body.es_decant === 'true',
 
-                    precio_decant_5ml:
-                        req.body.precio_decant_5ml,
+precio_decant_5ml:
+    req.body.precio_decant_5ml
+        ? parseFloat(req.body.precio_decant_5ml)
+        : null,
 
-                    precio_decant_10ml:
-                        req.body.precio_decant_10ml,
+precio_decant_10ml:
+    req.body.precio_decant_10ml
+        ? parseFloat(req.body.precio_decant_10ml)
+        : null,
 
-                    stock_decant_5ml:
-                        req.body.stock_decant_5ml,
+stock_decant_5ml:
+    req.body.stock_decant_5ml
+        ? parseInt(req.body.stock_decant_5ml)
+        : null,
 
-                    stock_decant_10ml:
-                        req.body.stock_decant_10ml
+stock_decant_10ml:
+    req.body.stock_decant_10ml
+        ? parseInt(req.body.stock_decant_10ml)
+        : null
 
                 }
 
