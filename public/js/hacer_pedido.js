@@ -1154,6 +1154,101 @@ Intente nuevamente después.`
                 ADMIN
                 ====================================== */
 
+                console.log('PASO A');
+
+                const adminRes =
+                    await fetch('/api/admin');
+
+
+                console.log('PASO B');
+
+
+                const admin =
+                    await adminRes.json();
+
+                console.log('PASO C');
+
+
+
+                /* ======================================
+                MENSAJE WHATSAPP
+                ====================================== */
+
+                const mensaje = `
+━━━━━━━━━━━━━━
+444 ESSENCE
+NUEVO PEDIDO
+━━━━━━━━━━━━━━
+
+👤 Cliente:
+${usuario.nombre}
+
+📦 Producto:
+${producto.nombre}
+
+🧴 Tipo:
+${tipo}
+
+🔢 Cantidad:
+${cantidad}
+
+💵 Total:
+$${precioFinal}
+
+📞 Teléfono:
+${document.getElementById('telefono').value}
+
+📍 Dirección:
+${document.getElementById('direccion').value}
+
+📝 Referencias:
+${document.getElementById('referencias').value}
+`;
+
+
+                const texto =
+                    encodeURIComponent(mensaje);
+
+
+
+
+
+                /* ======================================
+                FORMATEAR NÚMERO
+                ====================================== */
+
+                let numero =
+
+                    admin.num
+                    .toString()
+                    .replace(/\D/g, '');
+
+
+
+
+
+                if(!numero.startsWith('52')){
+
+                    numero =
+                        '52' + numero;
+
+                }
+
+
+
+
+
+                /* ======================================
+                ABRIR WHATSAPP
+                ====================================== */
+
+                window.open(
+
+                    `https://wa.me/${numero}?text=${texto}`,
+
+                    '_blank'
+
+                );
 
             }
 
@@ -1201,7 +1296,7 @@ Su pedido fue realizado correctamente.
             // ======================================
             // REGRESAR CATÁLOGO
             // ======================================
-
+            console.log('PASO E');
             window.location.href =
                 '/catalogo.html';
 
