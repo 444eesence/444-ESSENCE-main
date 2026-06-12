@@ -172,8 +172,6 @@ async function crearAdmin(req, res){
     num:
         req.body.num,
 
-    app_pass:
-        req.body.app_pass,
 
     principal:false
 
@@ -228,8 +226,7 @@ async function editarAdmin(req, res){
 
     num:req.body.num,
 
-    app_pass:
-        req.body.app_pass,
+
 
     usuario:{
 

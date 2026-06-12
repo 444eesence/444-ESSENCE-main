@@ -443,13 +443,6 @@ function renderizar(){
 
 
 
-                    <!-- BOTÓN -->
-                    <div class="seleccionar">
-
-                        SELECCIONAR PERFUME
-
-                    </div>
-
                 </div>
 
             </div>
@@ -936,7 +929,7 @@ async function cargarAdmin(){
 
             <div class="footer-titulo">
 
-                ADMINISTRADOR
+                CONTACTENOS
 
             </div>
 
