@@ -385,12 +385,11 @@ IMAGEN CARD
 .card img{
 
     width:100%;
-
     height:260px;
 
-    object-fit:cover;
+    object-fit:contain;
 
-    background:white;
+    background:transparent;
 
 }
 
@@ -569,16 +568,11 @@ IMAGEN PERFUME
 .perfume-panel img{
 
     width:100%;
-
     height:260px;
 
     object-fit:contain;
 
     border-radius:18px;
-
-    background:white;
-
-    padding:10px;
 
 }
 
