@@ -8,12 +8,13 @@ require('dotenv').config();
 
 
 
-// ======================================
-// NODEMAILER
-// ======================================
+const { Resend } =
+require('resend');
 
-const nodemailer =
-require('nodemailer');
+const resend =
+new Resend(
+    process.env.RESEND_API_KEY
+);
 
 const { PrismaClient } =
 require('@prisma/client');
@@ -72,57 +73,20 @@ console.log(
     adminPrincipal.usuario.email
 );
 
-console.log(
-    adminPrincipal.app_pass
-);
-
-// ======================================
-// SI NO HAY CONTRASEÑA
-// ======================================
-
-if(!adminPrincipal.app_pass){
-
-    console.log(
-        '⚠️ Administrador sin contraseña de aplicación'
-    );
-
-    return;
-
-}
 
 
 
 
 
-const transporter =
 
-    nodemailer.createTransport({
+const resultado =
+await resend.emails.send({
 
-        service:'gmail',
+    from:
+    '444 ESSENCE <pedidos@444essence.com>',
 
-        auth:{
-
-            user:
-                adminPrincipal.usuario.email,
-
-            pass:
-                adminPrincipal.app_pass
-
-        }
-
-    });
-
-
-
-
-
-await transporter.sendMail({
-
-from:
-    adminPrincipal.usuario.email,
-
-to:
-    adminPrincipal.usuario.email,
+    to:
+        adminPrincipal.usuario.email,
 
         subject:'NUEVO PEDIDO • 444 ESSENCE',
 
