@@ -521,7 +521,17 @@ PANEL PERFUME
 
 }
 
+.slider{
 
+    transition:.3s;
+
+}
+
+.slider.oculto{
+
+    transform:translateX(100%);
+
+}
 
 
 
@@ -1186,7 +1196,35 @@ RESPONSIVE TABLET
 
 }
 
+.cerrar-movil{
 
+    position:fixed;
+
+    top:20px;
+
+    right:20px;
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:silver;
+
+    color:black;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    z-index:10000;
+
+}
 
 
 

@@ -1,4 +1,12 @@
 // ======================================
+// BCRYPT
+// ======================================
+
+const bcrypt =
+require('bcrypt');
+
+
+// ======================================
 // PRISMA
 // ======================================
 
@@ -7,9 +15,6 @@ require('@prisma/client');
 
 const prisma =
 new PrismaClient();
-
-
-
 
 
 // ======================================
@@ -37,10 +42,6 @@ async function obtenerAdminPrincipal(req, res){
 
             });
 
-
-
-
-
         if(!admin){
 
             return res.status(404).json({
@@ -51,10 +52,6 @@ async function obtenerAdminPrincipal(req, res){
             });
 
         }
-
-
-
-
 
         res.json(admin);
 
@@ -72,9 +69,6 @@ async function obtenerAdminPrincipal(req, res){
     }
 
 }
-
-
-
 
 
 // ======================================
@@ -98,10 +92,6 @@ async function obtenerAdmins(req, res){
 
             });
 
-
-
-
-
         res.json(admins);
 
     }catch(error){
@@ -120,9 +110,6 @@ async function obtenerAdmins(req, res){
 }
 
 
-
-
-
 // ======================================
 // CREAR ADMIN
 // ======================================
@@ -130,10 +117,6 @@ async function obtenerAdmins(req, res){
 async function crearAdmin(req, res){
 
     try{
-
-        // ======================================
-        // VOLVER ADMIN AL USUARIO
-        // ======================================
 
         await prisma.usuario.update({
 
@@ -148,40 +131,25 @@ async function crearAdmin(req, res){
 
         });
 
-
-
-
-
-        // ======================================
-        // CREAR ADMIN
-        // ======================================
-
         const admin =
             await prisma.administrador.create({
 
                 data:{
 
-    id_usuario:
-        parseInt(
-            req.body.id_usuario
-        ),
+                    id_usuario:
+                        parseInt(
+                            req.body.id_usuario
+                        ),
 
-    ig:
-        req.body.ig,
+                    ig:req.body.ig,
 
-    num:
-        req.body.num,
+                    num:req.body.num,
 
+                    principal:false
 
-    principal:false
-
-}
+                }
 
             });
-
-
-
-
 
         res.json(admin);
 
@@ -199,9 +167,6 @@ async function crearAdmin(req, res){
     }
 
 }
-
-
-
 
 
 // ======================================
@@ -222,13 +187,11 @@ async function editarAdmin(req, res){
 
                 data:{
 
-    ig:req.body.ig,
+                    ig:req.body.ig,
 
-    num:req.body.num,
+                    num:req.body.num,
 
-
-
-    usuario:{
+                    usuario:{
 
                         update:{
 
@@ -242,10 +205,6 @@ async function editarAdmin(req, res){
                 }
 
             });
-
-
-
-
 
         res.json(actualizado);
 
@@ -265,11 +224,8 @@ async function editarAdmin(req, res){
 }
 
 
-
-
-
 // ======================================
-// HACER ADMIN PRINCIPAL
+// HACER PRINCIPAL
 // ======================================
 
 async function hacerPrincipal(req, res){
@@ -279,14 +235,6 @@ async function hacerPrincipal(req, res){
         const id =
             parseInt(req.params.id);
 
-
-
-
-
-        // ======================================
-        // QUITAR PRINCIPAL A TODOS
-        // ======================================
-
         await prisma.administrador.updateMany({
 
             data:{
@@ -294,14 +242,6 @@ async function hacerPrincipal(req, res){
             }
 
         });
-
-
-
-
-
-        // ======================================
-        // ACTIVAR NUEVO PRINCIPAL
-        // ======================================
 
         const admin =
             await prisma.administrador.update({
@@ -315,10 +255,6 @@ async function hacerPrincipal(req, res){
                 }
 
             });
-
-
-
-
 
         res.json({
 
@@ -343,7 +279,93 @@ async function hacerPrincipal(req, res){
 }
 
 
+// ======================================
+// CAMBIAR PASSWORD
+// ======================================
 
+async function cambiarPassword(req,res){
+
+    try{
+
+        const idAdmin =
+            parseInt(req.params.id);
+
+        const { password } =
+            req.body;
+
+        if(!password){
+
+            return res.status(400).json({
+
+                ok:false,
+                error:'Contraseña requerida'
+
+            });
+
+        }
+
+        const admin =
+            await prisma.administrador.findUnique({
+
+                where:{
+                    id_admin:idAdmin
+                }
+
+            });
+
+        if(!admin){
+
+            return res.status(404).json({
+
+                ok:false,
+                error:'Administrador no encontrado'
+
+            });
+
+        }
+
+        const hash =
+            await bcrypt.hash(
+
+                password,
+                10
+
+            );
+
+        await prisma.usuario.update({
+
+            where:{
+                id_usuarios:
+                    admin.id_usuario
+            },
+
+            data:{
+                contrasena:hash
+            }
+
+        });
+
+        res.json({
+
+            ok:true,
+            mensaje:'Contraseña actualizada'
+
+        });
+
+    }catch(error){
+
+        console.log(error);
+
+        res.status(500).json({
+
+            ok:false,
+            error:error.message
+
+        });
+
+    }
+
+}
 
 
 // ======================================
@@ -357,14 +379,6 @@ async function eliminarAdmin(req, res){
         const id =
             parseInt(req.params.id);
 
-
-
-
-
-        // ======================================
-        // BUSCAR ADMIN
-        // ======================================
-
         const admin =
             await prisma.administrador.findUnique({
 
@@ -373,10 +387,6 @@ async function eliminarAdmin(req, res){
                 }
 
             });
-
-
-
-
 
         if(!admin){
 
@@ -389,14 +399,6 @@ async function eliminarAdmin(req, res){
 
         }
 
-
-
-
-
-        // ======================================
-        // NO ELIMINAR PRINCIPAL
-        // ======================================
-
         if(admin.principal){
 
             return res.status(400).json({
@@ -407,14 +409,6 @@ async function eliminarAdmin(req, res){
             });
 
         }
-
-
-
-
-
-        // ======================================
-        // VOLVER CLIENTE
-        // ======================================
 
         await prisma.usuario.update({
 
@@ -429,14 +423,6 @@ async function eliminarAdmin(req, res){
 
         });
 
-
-
-
-
-        // ======================================
-        // ELIMINAR ADMIN
-        // ======================================
-
         await prisma.administrador.delete({
 
             where:{
@@ -444,10 +430,6 @@ async function eliminarAdmin(req, res){
             }
 
         });
-
-
-
-
 
         res.json({
 
@@ -471,9 +453,6 @@ async function eliminarAdmin(req, res){
 }
 
 
-
-
-
 // ======================================
 // EXPORTAR
 // ======================================
@@ -485,6 +464,7 @@ module.exports = {
     crearAdmin,
     editarAdmin,
     hacerPrincipal,
+    cambiarPassword,
     eliminarAdmin
 
 };

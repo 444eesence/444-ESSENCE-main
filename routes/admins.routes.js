@@ -117,7 +117,17 @@ router.delete(
 
 
 
+// ======================================
+// CAMBIAR PASSWORD
+// ======================================
 
+router.put(
+
+    '/admins/password/:id',
+
+    adminsController.cambiarPassword
+
+);
 
 // ======================================
 // EXPORTAR

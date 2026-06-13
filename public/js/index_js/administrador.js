@@ -521,10 +521,7 @@ if(telefono.length !== 10){
             'admin-num'
         ).value,
 
-    app_pass:
-        document.getElementById(
-            'admin-app-pass'
-        ).value
+
 
 };
 
@@ -832,10 +829,7 @@ function editarAdmin(id){
 ).value =
     admin.num || '';
 
-document.getElementById(
-    'admin-app-pass'
-).value =
-    admin.app_pass || '';
+
 
 }
 
@@ -944,10 +938,6 @@ if(telefono.length !== 10){
             'admin-num'
         ).value,
 
-    app_pass:
-        document.getElementById(
-            'admin-app-pass'
-        ).value
 
 };
 
@@ -972,7 +962,37 @@ if(telefono.length !== 10){
     });
 
 
+    const nuevaPassword =
 
+    document.getElementById(
+        'admin-password'
+    ).value.trim();
+
+if(nuevaPassword){
+
+    await fetch(
+
+        `/api/admins/password/${idAdmin}`,
+
+        {
+
+            method:'PUT',
+
+            headers:{
+                'Content-Type':'application/json'
+            },
+
+            body:JSON.stringify({
+
+                password:nuevaPassword
+
+            })
+
+        }
+
+    );
+
+}
 
 
     // ======================================
@@ -1043,9 +1063,6 @@ function limpiarAdmin(){
     ).value = '';
 
 
-    document.getElementById(
-    'admin-app-pass'
-).value = '';
 
 
     // ======================================
@@ -1056,4 +1073,14 @@ function limpiarAdmin(){
         'admin-nombre'
     ).value = '';
 
+    document.getElementById(
+    'admin-password'
+).value = '';
+
 }
+
+
+
+document.querySelectorAll(
+'.btn-principal'
+)

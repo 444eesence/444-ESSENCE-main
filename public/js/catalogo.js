@@ -161,13 +161,9 @@ CERRAR PANEL MÓVIL
 
 function cerrarMovil(){
 
-    if(window.innerWidth <= 1100){
-
-        document
-        .getElementById('slider')
-        .classList.remove('active');
-
-    }
+    document
+    .getElementById('slider')
+    .classList.add('oculto');
 
 }
 
