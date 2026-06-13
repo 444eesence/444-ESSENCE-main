@@ -161,9 +161,10 @@ CERRAR PANEL MÓVIL
 
 function cerrarMovil(){
 
-    document
-    .getElementById('slider')
-    .classList.add('oculto');
+    const slider =
+        document.getElementById('slider');
+
+    slider.classList.remove('active');
 
 }
 
@@ -644,13 +645,10 @@ function abrirSlider(producto){
     // ======================================
 
     const slider =
-        document.getElementById('slider');
+    document.getElementById('slider');
 
 
-
-
-
-    slider.classList.add('active');
+slider.classList.add('active');
 
 
 
