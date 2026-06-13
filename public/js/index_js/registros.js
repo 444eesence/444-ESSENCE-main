@@ -667,45 +667,29 @@ LIMPIAR TABLA REGISTROS
     NO elimina registros reales.
 */
 
-function limpiarRegistros(){
+async function limpiarRegistros(){
 
-    // ======================================
-    // CONFIRMAR
-    // ======================================
+    const confirmar = confirm(
 
-    const confirmar =
+        '¿Eliminar TODOS los registros?'
 
-        confirm(
-            '¿Limpiar tabla de registros?'
-        );
-
-
-
-
+    );
 
     if(!confirmar) return;
 
+    await fetch(
 
+        '/api/registros',
 
+        {
 
+            method:'DELETE'
 
-    // ======================================
-    // LIMPIAR TABLA
-    // ======================================
+        }
 
-    document.getElementById(
-        'tabla-registros'
-    ).innerHTML = '';
+    );
 
-
-
-
-
-    // ======================================
-    // LIMPIAR ARRAY
-    // ======================================
-
-    registrosFiltrados = [];
+    cargarRegistros();
 
 }
 

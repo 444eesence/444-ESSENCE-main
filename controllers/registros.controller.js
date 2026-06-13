@@ -105,7 +105,32 @@ async function limpiarRegistros(req, res){
 }
 
 
+async function limpiarRegistros(req, res){
 
+    try{
+
+        await prisma.registro.deleteMany();
+
+        await prisma.pedido.deleteMany({
+
+            where:{
+                estado:false
+            }
+
+        });
+
+        res.json({
+
+            ok:true
+
+        });
+
+    }catch(error){
+
+        
+    }
+
+}
 
 
 // ======================================
@@ -118,3 +143,4 @@ module.exports = {
     limpiarRegistros
 
 };
+
