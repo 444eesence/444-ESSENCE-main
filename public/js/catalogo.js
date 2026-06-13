@@ -1189,12 +1189,43 @@ function cerrarDescargas(){
 /* =====================================
 DESCARGAR ANDROID
 ===================================== */
+// =====================================
+// INSTALAR APP
+// =====================================
 
-function descargarAndroid(){
+let deferredPrompt = null;
 
-    alert(
-        'Próximamente disponible'
-    );
+window.addEventListener(
+
+    'beforeinstallprompt',
+
+    (e)=>{
+
+        e.preventDefault();
+
+        deferredPrompt = e;
+
+    }
+
+);
+
+async function descargarAndroid(){
+
+    if(!deferredPrompt){
+
+        alert(
+            'La aplicación ya está instalada o este dispositivo no permite instalación.'
+        );
+
+        return;
+
+    }
+
+    deferredPrompt.prompt();
+
+    await deferredPrompt.userChoice;
+
+    deferredPrompt = null;
 
 }
 
