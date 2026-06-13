@@ -1239,8 +1239,16 @@ DESCARGAR WINDOWS
 
 function descargarWindows(){
 
-    alert(
-        'Próximamente disponible'
-    );
+    if(deferredPrompt){
+
+        deferredPrompt.prompt();
+
+    }else{
+
+        alert(
+            'En Chrome o Edge busca el icono Instalar aplicación junto a la barra de direcciones.'
+        );
+
+    }
 
 }
