@@ -1146,49 +1146,8 @@ function cerrarCreditos(){
 
 }
 
-/* =====================================
-ABRIR DESCARGAS
-===================================== */
-
-function abrirDescargas(){
-
-    document
-    .getElementById(
-        'modal-descargas'
-    )
-    .classList.remove(
-        'oculto'
-    );
-
-}
 
 
-
-
-
-/* =====================================
-CERRAR DESCARGAS
-===================================== */
-
-function cerrarDescargas(){
-
-    document
-    .getElementById(
-        'modal-descargas'
-    )
-    .classList.add(
-        'oculto'
-    );
-
-}
-
-
-
-
-
-/* =====================================
-DESCARGAR ANDROID
-===================================== */
 // =====================================
 // INSTALAR APP
 // =====================================
@@ -1209,46 +1168,62 @@ window.addEventListener(
 
 );
 
-async function descargarAndroid(){
+async function instalarApp(){
 
-    if(!deferredPrompt){
+    const esIOS =
+
+        /iPhone|iPad|iPod/i.test(
+            navigator.userAgent
+        );
+
+    if(esIOS){
 
         alert(
-            'La aplicación ya está instalada o este dispositivo no permite instalación.'
+            'Safari → Compartir → Añadir a pantalla de inicio'
         );
 
         return;
 
     }
 
-    deferredPrompt.prompt();
-
-    await deferredPrompt.userChoice;
-
-    deferredPrompt = null;
-
-}
-
-
-
-
-
-/* =====================================
-DESCARGAR WINDOWS
-===================================== */
-
-function descargarWindows(){
-
     if(deferredPrompt){
 
         deferredPrompt.prompt();
 
-    }else{
+        await deferredPrompt.userChoice;
 
-        alert(
-            'En Chrome o Edge busca el icono Instalar aplicación junto a la barra de direcciones.'
-        );
+        return;
 
     }
 
+    alert(
+        'La aplicación ya está instalada.'
+    );
+
 }
+
+
+window.addEventListener(
+
+    'appinstalled',
+
+    ()=>{
+
+        const boton =
+
+            document.querySelector(
+                '.fa-download'
+            );
+
+        if(boton){
+
+            boton.parentElement.style.display =
+                'none';
+        }
+
+    }
+
+);
+
+
+
